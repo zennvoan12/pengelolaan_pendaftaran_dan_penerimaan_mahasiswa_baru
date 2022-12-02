@@ -24,4 +24,4 @@ Route::get('/pendaftaran', [LandingController::class, 'daftar']);
 Route::get('/login', [LoginController::class, 'login']);
 Route::get('/register', [RegisterController::class, 'register']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
+Route::get('/dashboard', [DashboardController::class, 'index']);
