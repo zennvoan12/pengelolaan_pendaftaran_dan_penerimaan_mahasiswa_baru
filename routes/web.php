@@ -32,5 +32,6 @@ Route::controller(RegisterController::class)->group(function (){
     Route::post('/register', 'create');
 });
 
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::controller(DashboardController::class)->group(function (){
+    Route::get('/dashboard', 'index')->name('dashboard')->middleware('auth');
+});
