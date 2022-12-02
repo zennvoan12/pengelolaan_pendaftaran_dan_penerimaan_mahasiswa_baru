@@ -16,11 +16,11 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing.index');
 });
 
 Route::get('/pendaftaran', function () {
-    return view('daftar');
+    return view('landing.daftar');
 });
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
