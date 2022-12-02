@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +17,11 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('landing.index');
-});
+Route::get('/', [LandingController::class, 'index']);
 
-Route::get('/pendaftaran', function () {
-    return view('landing.daftar');
-});
+Route::get('/pendaftaran', [LandingController::class, 'daftar']);
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login']);
+Route::get('/register', [RegisterController::class, 'register']);
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
