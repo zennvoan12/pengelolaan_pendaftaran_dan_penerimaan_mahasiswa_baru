@@ -27,6 +27,10 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/logout', 'logout');
 });
 
-Route::get('/register', [RegisterController::class, 'register']);
+Route::controller(RegisterController::class)->group(function (){
+    Route::get('/register', 'register')->name('register')->middleware('guest');
+    Route::post('/register', 'create');
+});
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
