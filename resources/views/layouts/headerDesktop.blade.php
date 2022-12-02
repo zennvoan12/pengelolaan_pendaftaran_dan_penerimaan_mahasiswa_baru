@@ -158,8 +158,14 @@
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a href="#">
-                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                    <form action="/logout" method="post">
+                                    @csrf
+                                    <a>
+                                    <button type="submit">    
+                                            <i class="zmdi zmdi-power"></i>Logout
+                                        </button>
+                                    </a>
+                                    </form>
                                 </div>
                             </div>
                         </div>
