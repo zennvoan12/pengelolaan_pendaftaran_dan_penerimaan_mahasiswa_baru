@@ -21,7 +21,12 @@ Route::get('/', [LandingController::class, 'index']);
 
 Route::get('/pendaftaran', [LandingController::class, 'daftar']);
 
-Route::get('/login', [LoginController::class, 'login']);
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'login')->name('login')->middleware('guest');
+    Route::post('/login', 'authenticate');  
+    Route::post('/logout', 'logout');
+});
+
 Route::get('/register', [RegisterController::class, 'register']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
