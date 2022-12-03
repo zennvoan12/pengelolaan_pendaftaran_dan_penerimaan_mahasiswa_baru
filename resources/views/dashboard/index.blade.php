@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('konten')
+@can('manage-admin')   
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -540,4 +541,5 @@
         </div>
     </div>
 </div>
+@endcan
 @endsection
