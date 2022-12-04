@@ -32,6 +32,8 @@ Route::controller(RegisterController::class)->group(function (){
     Route::post('/register', 'create');
 });
 
-Route::controller(DashboardController::class)->group(function (){
-    Route::get('/dashboard', 'index')->name('dashboard')->middleware('auth');
+Route::controller(DashboardController::class)->middleware('auth')->group(function (){
+    Route::get('/dashboard', 'index');
+    Route::post('/dashboard/input-form-registrasi', 'create')->name('submit.form-registrasi');
+    Route::put('/dashboard/edit-form-registrasi', 'update');
 });
