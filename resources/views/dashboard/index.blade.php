@@ -24,7 +24,6 @@
                     </div>
                 </div>
             </div>
-            @include('dashboard.modalCreate')
             @else
             <div class="table-responsive-sm">
                 <table class="table table-hover bg-white">
@@ -45,7 +44,6 @@
                     </tbody>    
                 </table>   
             </div> 
-            @include('dashboard.modalUpdate')
             @endif  
             {{-- <div class="row">
                 <div class="col-md-12">
@@ -57,7 +55,10 @@
         </div>
     </div>
 </div>
+{{-- Memanggil modal create --}}
+@include('dashboard.modalCreate')
 {{-- Memanggil modal update --}}
+@include('dashboard.modalUpdate')
             {{-- <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
