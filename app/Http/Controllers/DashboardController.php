@@ -49,4 +49,37 @@ class DashboardController extends Controller
         return redirect('/dashboard');
 
     }
+
+    public function update(Request $request)
+    {
+        $id = Auth::user()->id;
+        $pendaftar = Pendaftar::where('user_id', $id)->first();
+        $indonesia = implode(",", $request['indonesia']);
+        $inggris = implode(",", $request['inggris']);
+        $mtk = implode(",", $request['mtk']);
+
+        $pendaftar->nama = $request->nama;
+        $pendaftar->nik = $request->nik;
+        $pendaftar->tempat_lahir = $request->tempat_lahir;
+        $pendaftar->tanggal_lahir = $request->tanggal_lahir;
+        $pendaftar->jenis_kelamin = $request->jk;
+        $pendaftar->kewarganegaraan = $request->kewarganegaraan;
+        $pendaftar->agama = $request->agama;
+        $pendaftar->nama_ibu = $request->nama_ibu;
+        $pendaftar->email_daftar = $request->email_daftar;
+        $pendaftar->no_telp = $request->no_telp;
+        $pendaftar->alamat = $request->alamat;
+        $pendaftar->kode_pos = $request->kode_pos;
+        $pendaftar->pendidikan = $request->pendidikan;
+        $pendaftar->asal_sekolah = $request->sekolah;
+        $pendaftar->nilai_indonesia = $indonesia;
+        $pendaftar->nilai_inggris = $inggris;
+        $pendaftar->nilai_mtk = $mtk;
+        $pendaftar->pilihan_prodi = $request->prodi;
+        $pendaftar->user_id = $request->user_id;
+
+        $pendaftar->save();
+
+        return redirect('/dashboard');
+    }
 }

@@ -19,8 +19,8 @@
                     <div class="overview-wrap">
                         <button class="au-btn au-btn-icon au-btn--blue" data-toggle="modal"
                         data-target="#formRegistrasiModal">
-                            <i class="zmdi zmdi-plus"></i>Isi Form Registrasi</button>
-                            <button class="btn btn-primary" id="contoh">Klik disini</button>
+                        <i class="zmdi zmdi-plus"></i>Isi Form Registrasi</button>
+                        <button class="btn btn-primary" id="contoh">Klik disini</button>
                     </div>
                 </div>
             </div>
@@ -57,30 +57,15 @@
 </div>
 {{-- Memanggil modal create --}}
 @include('dashboard.modalCreate')
-{{-- Memanggil modal update --}}
-@include('dashboard.modalUpdate')
-            {{-- <div class="row">
-                <div class="col-md-12">
-                    <div class="copyright">
-                        <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                    </div>
+@if ($pendaftar == true)
+@include('dashboard.modalUpdate')    
+@endif
+{{-- <div class="row">
+    <div class="col-md-12">
+        <div class="copyright">
+            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+        </div>
                 </div>
             </div> --}}
-            <script>
-                document.getElementById("contoh").addEventListener('click', function() {
-                    swal({
-
-                        title: "Anjay!",
-
-                        text: "Pop-up berhasil ditampilkan",
-
-                        icon: "success",
-
-                        button: true
-
-                    });
-
-                    });
-            </script>
 @endcan
 @endsection
