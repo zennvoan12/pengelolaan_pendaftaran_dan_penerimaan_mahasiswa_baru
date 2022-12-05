@@ -20,6 +20,7 @@
 
     <!-- Bootstrap CSS-->
     <link href="{{asset('vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> --}}
 
     <!-- Vendor CSS-->
     <link href="{{asset('vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
@@ -51,7 +52,7 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            @yield('konten')
+            @yield('content')
            
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
@@ -59,8 +60,10 @@
 
     </div>
 
-    <!-- Jquery JS-->
-    <script src="{{asset('vendor/jquery-3.2.1.min.js')}}"></script>
+    {{-- jquery JS --}}
+    <script src="{{asset('vendor/jquery-3.2.1.min.js')}} "></script>
+    <!-- Sweetalert JS-->
+    <script src="{{asset('vendor/sweetalert/sweetalert.min.js')}}"></script>
     <!-- Bootstrap JS-->
     <script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>

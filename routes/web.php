@@ -21,7 +21,19 @@ Route::get('/', [LandingController::class, 'index']);
 
 Route::get('/pendaftaran', [LandingController::class, 'daftar']);
 
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/register', [RegisterController::class, 'register']);
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'login')->name('login')->middleware('guest');
+    Route::post('/login', 'authenticate');  
+    Route::post('/logout', 'logout');
+});
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::controller(RegisterController::class)->group(function (){
+    Route::get('/register', 'register')->name('register')->middleware('guest');
+    Route::post('/register', 'create');
+});
+
+Route::controller(DashboardController::class)->middleware('auth')->group(function (){
+    Route::get('/dashboard', 'index');
+    Route::post('/dashboard/input-form-registrasi', 'create');
+    Route::put('/dashboard/edit-form-registrasi', 'update');
+});
