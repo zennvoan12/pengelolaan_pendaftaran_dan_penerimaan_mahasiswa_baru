@@ -11,8 +11,9 @@ class DashboardController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
+        $calonMhs = Pendaftar::all();
         $pendaftar = Pendaftar::where('user_id', $id)->first();
-        return view ('dashboard.index', compact ('pendaftar', 'id'));
+        return view ('dashboard.index', compact ('pendaftar', 'id', 'calonMhs'));
     }
 
     public function create(Request $request)
