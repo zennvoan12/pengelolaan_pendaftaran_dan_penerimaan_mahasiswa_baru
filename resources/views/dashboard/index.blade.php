@@ -36,10 +36,17 @@
                         <tr>
                             <td>{{$pendaftar->no_reg}}</td>
                             <td>{{$pendaftar->nama}}</td>
+                            @if ($pendaftar->status == true)
                             <td>
                                 <button type="button" id="btn-edit-registrasi" class="btn btn-info sm" data-toggle="modal"
                                 data-target="#formEditRegistrasiModal" data-id="{{$pendaftar->no_reg}}">Edit</button>      
+                            </td>   
+                            @else
+                            <td>
+                                <button type="button" id="btn-edit-registrasi" class="btn btn-warning sm" data-toggle="modal"
+                                data-target="#formReadRegistrasiModal" data-id="{{$pendaftar->no_reg}}">Lihat</button>      
                             </td>    
+                            @endif
                         </tr>    
                     </tbody>    
                 </table>   
@@ -59,6 +66,9 @@
 @include('dashboard.modalCreate')
 @if ($pendaftar == true)
 @include('dashboard.modalUpdate')    
+@endif
+@if ($pendaftar->status == false)
+@include('dashboard.modalRead')    
 @endif
 {{-- <div class="row">
     <div class="col-md-12">
@@ -83,7 +93,7 @@
             <br/>
             <hr/>
             <div class="table-responsive-sm">
-                <table class="table table-hover bg-white">
+                <table class="table table-hover bg-white" id="myTable">
                     <thead>
                         <th>No Registrasi</th>
                         <th>Nama</th>  
@@ -95,8 +105,7 @@
                             <td>{{$item->no_reg}}</td>
                             <td>{{$item->nama}}</td>
                             <td>
-                                <button type="button" id="btn-edit-registrasi" class="btn btn-info sm" data-toggle="modal"
-                                data-target="#formEditRegistrasiModal" data-id="{{$item->no_reg}}">Lihat</button>      
+                                <a href="/dashboard/lihat/{{$item->no_reg}}" class="btn btn-success">Lihat</a>
                             </td>    
                         </tr>    
                         @empty
@@ -115,12 +124,5 @@
         </div>
     </div>
 </div>
-{{-- <div class="row">
-    <div class="col-md-12">
-        <div class="copyright">
-            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-        </div>
-                </div>
-            </div> --}}
 @endcan
 @endsection

@@ -8,6 +8,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
+    <meta name=”csrf-token” content="{{ csrf_token() }}" />
 
     <!-- Title Page-->
     <title>Dashboard</title>
@@ -30,6 +31,7 @@
     <link href="{{asset('vendor/slick/slick.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.13.1/datatables.min.css"/>
 
     <!-- Main CSS-->
     <link href="{{asset('css/theme.css')}}" rel="stylesheet" media="all">
@@ -61,13 +63,15 @@
     </div>
 
     {{-- jquery JS --}}
-    <script src="{{asset('vendor/jquery-3.2.1.min.js')}} "></script>
+    {{-- <script src="{{asset('vendor/jquery-3.2.1.min.js')}} "></script> --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Sweetalert JS-->
     <script src="{{asset('vendor/sweetalert/sweetalert.min.js')}}"></script>
     <!-- Bootstrap JS-->
     <script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
     <!-- Vendor JS       -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.13.1/datatables.min.js"></script>
     <script src="{{asset('vendor/slick/slick.min.js')}}">
     </script>
     <script src="{{asset('vendor/wow/wow.min.js')}}"></script>
@@ -85,6 +89,11 @@
 
     <!-- Main JS-->
     <script src="{{asset('js/dem.js')}} "></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
 
 </body>
 
