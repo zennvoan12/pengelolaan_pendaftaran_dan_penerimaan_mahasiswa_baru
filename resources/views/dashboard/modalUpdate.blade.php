@@ -213,7 +213,7 @@
                                         <div class="form-group">
                                             <label>Pilih Program Studi</label>
                                             <select class="form-control" name="prodi">
-                                                <option value="{{$pendaftar->prodi}}" selected>{{$pendaftar->pilihan_prodi}}</option>
+                                                <option value="{{$pendaftar->pilihan_prodi}}" selected>{{$pendaftar->pilihan_prodi}}</option>
                                                 <option value="D3 - Teknik Komputer">D3 - Teknik Komputer</option>
                                                 <option value="D3 - Komputerisasi Akuntansi">D3 - Komputerisasi Akuntansi</option>
                                                 <option value="D3 - Manajemen Informatika">D3 - Manajemen Informatika</option>
