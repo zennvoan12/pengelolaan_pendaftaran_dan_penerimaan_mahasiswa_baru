@@ -8,8 +8,15 @@ use App\Models\Pendaftar;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+            if ($request->ajax()) {
+                $ajaxDaftar = Pendaftar::all();
+                return response()->json([
+                'success' => true,
+                    'posts' => $ajaxDaftar
+                ]);
+            }
         $id = Auth::user()->id;
         $calonMhs = Pendaftar::all();
         $pendaftar = Pendaftar::where('user_id', $id)->first();
@@ -82,5 +89,11 @@ class DashboardController extends Controller
         $pendaftar->save();
 
         return redirect('/dashboard');
+    }
+
+    public function show($id)
+    {
+        $item = Pendaftar::find($id);
+        return view ('dashboard.showPendaftar', compact ('item'));
     }
 }

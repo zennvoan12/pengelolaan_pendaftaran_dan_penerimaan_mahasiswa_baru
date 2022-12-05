@@ -1,316 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Pendaftaran Mahasiswa Baru</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Tata Cara Pendaftaran</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="{{asset('css/font-face.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{{asset('vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{{asset('vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/wow/animate.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/slick/slick.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{{asset('css/theme.css')}}" rel="stylesheet" media="all">
 
 </head>
-    {{-- header belum lengkap --}}
+
 <body>
-    <div class="container p-3 my-3 border">
-    <h1 class="text-center">Form Pendaftaran Mahasiswa Baru</h1>
-    <?php
-    //Include file koneksi, untuk koneksikan ke database
-
-    
-    //Fungsi untuk mencegah inputan karakter yang tidak sesuai
-    function input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    //Cek apakah ada kiriman form dari method post
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        $nama=input($_POST["nama"]);
-        $nik=input($_POST["nik"]);
-        $tempat_lahir=input($_POST["tempat_lahir"]);
-        $tanggal_lahir=input($_POST["tanggal_lahir"]);
-        $jk=input($_POST["jk"]);
-        $kewarganegaraan=input($_POST["kewarganegaraan"]);
-        $agama=input($_POST["agama"]);
-        $nama_ibu=input($_POST["nama_ibu"]);
-        $email=input($_POST["email"]);
-        $no_telp=input($_POST["no_telp"]);
-        $alamat=input($_POST["alamat"]);
-        $kode_pos=input($_POST["kode_pos"]);
-        $provinsi=input($_POST["provinsi"]);
-        $kabupaten=input($_POST["kabupaten"]);
-        $kecamatan=input($_POST["kecamatan"]);
-        $pendidikan=input($_POST["pendidikan"]);
-        $sekolah=input($_POST["sekolah"]);
-        $nilai_raport=input($_POST["nilai_raport"]);
-        $prog1=input($_POST["prog1"]);
-        $prog2=input($_POST["prog2"]);
-
-        //Query input menginput data kedalam tabel pendaftaraan
-        $sql="insert into pendaftaraan (nama,nik,tempat_lahir,tanggal_lahir,jk,kewarganegaraan,agama,nama_ibu,email,no_telp,alamat,kode_pos,provinsi,kabupaten,kecamatan,pendidikan,sekolah,nilai_raport,prog1,prog2) values
-		('$nama','$nik','$tempat_lahir','$tanggal_lahir',$jk,'$kewarganegaraan','$agama','$nama_ibu','$email','$no_telp','$alamat','$kode_pos','$provinsi','$kabupaten','$kecamatan','$pendidikan','$sekolah',$nilai_raport,'$prog1','$prog2')";
-
-        //Mengeksekusi/menjalankan query diatas
-       // $hasil=mysqli_query($kon,$sql);
-
-        //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
-        if ($hasil) { 
-            echo "<div class='alert alert-success'> Selamat $nama anda telah berhasil mendaftar.</div>"; 
-        }
-        else {
-            echo "<div class='alert alert-danger'> Pendaftaraan Gagal.</div>";
-        }
-    }
-    ?>
-        <form id="form" method="post">
-            <div class="alert alert-primary">
-                <strong>Data Diri</strong>
-            </div>
+    <main role="main" class="container">
+        <h1 class="mt-5"><h1>TATA CARA PENDAFTARAN PESERTA MAHASISWA BARU TAHUN 2023-2024</h1></h1>
+        <p class="lead">Proses pendaftaran Universitas Indonesia terdiri dari 9 tahap</p>
+        <div class="container">
             <div class="row">
-                <div class="col-sm-7">
-
-                    <div class="form-group">
-                        <label>Nama Lengkap:</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap">
-                    </div>
+                <div class="col-md-6 offset-md-3">
+                    <p></p>
+                
+                    <ol class="steps">
+                        <li>Membuat <strong><a href="https://penerimaan.ui.ac.id/register"><em>account</em></a></strong> di situs penerimaan UI
+                            <p class="small">Klik <em>link</em> <strong>Buat Account</strong> di kanan atas lalu isi formulir yang muncul</p></li>
+                            <li>Mengunggah <strong>foto</strong> berwarna ukuran 4x6 cm
+                        <p class="small">Anda harus mengunggah foto sebelum dapat membuat pendaftaran</p>
+                </li>
+                <li>Membuat <strong>pendaftaran</strong>
+                    <p class="small">
+                                    Anda dapat <em>login</em> menggunakan <em>username</em> dan <em>password</em> Anda, lalu pilih menu <strong>Buat Pendaftaran</strong>
+                                    untuk membuat pendaftaran baru.
+                                </p>
+                            </li>
+                            <li>Melakukan <strong>verifikasi pendaftaran</strong>
+                                <p class="small">Verifikasi dilakukan untuk memastikan Anda telah mengecek bahwa isian formulir pendaftaran dan pilihan program studi Anda telah
+                                    terisi dengan data yang benar serta telah mengetahui biaya pendidikan untuk program studi yang dipilih</p>
+                                    <li>Meng-<em>upload</em> <strong>berkas persyaratan</strong> pendaftaran
+                                        <p class="small">Khusus untuk pendaftar Program Pascasarjana (S2, S3), Profesi, Spesialis, S1 Ekstensi dan yang memilih S1 Kelas Internasional</p></li>
+                                        <li>Membayar <strong>biaya pendaftaran</strong>
+                                            <p class="small">Biaya pendaftaran hanya dapat dibayarkan setelah Anda menyelesaikan semua tahapan pendaftaran di atas.
+                                                <br />
+                                                <strong>Formulir pendaftaran dan pilihan program studi tidak dapat diubah lagi setelah Anda membayar biaya pendaftaran.</strong></p></li>
+                                                <li>Meng-<em>download</em> <strong>kartu ujian masuk</strong>
+                                                    <p class="small">Kartu ini harus dibawa ketika ujian seleksi masuk</p></li>
+                                                    <li>Mengikuti <strong>ujian seleksi masuk</strong> pada waktu yang telah ditentukan</li>
+                                                    <li>Setelah mengikuti ujian seleksi masuk, Anda dapat melihat hasil seleksi pada tanggal pengumuman</li>
+                                                </ol>
+                                                
+                                                <p>Keterangan tambahan dapat dilihat pada panduan pendaftaran masing-masing jalur penerimaan di menu sebelah kiri.</p>
                 </div>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label>Nomor Identitas (NIK):</label>
-                        <input type="text" name="nik" class="form-control" placeholder="Masukan Nomor NIK">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Tempat Lahir:</label>
-                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukan Tempat Lahir">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>Tanggal Lahir:</label>
-                        <input type="date" name="tanggal_lahir" class="form-control">
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label>Jenis Kelamin:</label>
-                        <select class="form-control" name="jk">
-                            <option>Pilih</option>
-                            <option value="1">Laki-laki</option>
-                            <option value="2">Perempuan</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Kewarganegaraan:</label>
-                        <select class="form-control" name="kewarganegaraan">
-                            <option>Pilih</option>
-                            <option value="WNI">Warga Negara Indonesia</option>
-                            <option value="WNA">Warga Negara Asing</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>Agama:</label>
-                        <select class="form-control" name="agama">
-                            <option>Pilih</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label>Nama Ibu Kandung:</label>
-                        <input type="text" name="nama_ibu" class="form-control" placeholder="Masukan Nama Ibu Kandung">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Email:</label>
-                        <input type="email" name="email" class="form-control" placeholder="Masukan Email">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>No Telp:</label>
-                        <input type="text" name="no_telp" class="form-control" placeholder="Masukan No Telp">
-                    </div>
-                </div>
-            </div>
-            <div class="alert alert-primary">
-                <strong>Data Alamat Asal</strong>
-            </div>
-            <div class="row">
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label>Alamat:</label>
-                        <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <label>Kode Pos:</label>
-                        <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Provinsi:</label>
-                        <select class="form-control" name="provinsi" id="provinsi">
-                            {{-- <?php
-                           // include "koneksi.php";
-                            //Perintah sql untuk menampilkan semua data pada tabel provinsi
-                            $sql="select * from provinsi";
-                            $hasil=mysqli_query($kon,$sql);
-                            while ($data = mysqli_fetch_array($hasil)) {
-                                ?>
-                            <option value="<?php echo $data['id_prov'];?>"><?php echo $data['nama'];?></option>
-                            <?php
-                                }
-                        ?> --}}
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Kabupaten:</label>
-                        <select class="form-control" name="kabupaten" id="kabupaten">
-                            <!-- Kabupaten akan diload menggunakan ajax, dan ditampilkan disini -->
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Kecamatan:</label>
-                        <select class="form-control" name="kecamatan" id="kecamatan">
-                            <!-- Kecamatan akan diload menggunakan ajax, dan ditampilkan disini -->
-                        </select>
-                    </div>
-                </div>
-
-            </div>
-            <script>
-            $("#provinsi").change(function() {
-                // variabel dari nilai combo provinsi
-                var id_provinsi = $("#provinsi").val();
-
-                // Menggunakan ajax untuk mengirim dan dan menerima data dari server
-                $.ajax({
-                    type: "POST",
-                    dataType: "html",
-                    url: "ambil-data.php",
-                    data: "provinsi=" + id_provinsi,
-                    success: function(data) {
-                        $("#kabupaten").html(data);
-                    }
-                });
-            });
-
-            $("#kabupaten").change(function() {
-                // variabel dari nilai combo box kabupaten
-                var id_kabupaten = $("#kabupaten").val();
-
-                // Menggunakan ajax untuk mengirim dan dan menerima data dari server
-                $.ajax({
-                    type: "POST",
-                    dataType: "html",
-                    url: "ambil-data.php",
-                    data: "kabupaten=" + id_kabupaten,
-                    success: function(data) {
-                        $("#kecamatan").html(data);
-                    }
-                });
-            });
-            </script>
-            <div class="alert alert-primary">
-                <strong>Data Pendidikan</strong>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Pendidikan Terakhir:</label>
-                        <select class="form-control" name="pendidikan">
-                            <option value="SMA-IPA">SMA - IPA</option>
-                            <option value="SMA-IPS">SMA - IPS</option>
-                            <option value="SMK-IPA">SMK - IPA</option>
-                            <option value="SMK-IPS">SMK - IPS</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Nama Sekolah:</label>
-                        <input type="text" name="sekolah" class="form-control" placeholder="Masukan Nama Sekolah">
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Rata-rata Nilai Rapor Kelas 12:</label>
-                        <input type="text" name="nilai_raport" class="form-control"
-                            placeholder="Masukan Rata-rata nilai raport">
-                    </div>
-                </div>
-            </div>
-            <div class="alert alert-primary">
-                <strong>Pilihan Program Studi</strong>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Pilih Program Studi 1:</label>
-                        <select class="form-control" name="prog1">
-                            <option value="D3 - Teknik Komputer">D3 - Teknik Komputer</option>
-                            <option value="D3 - Komputerisasi Akuntansi">D3 - Komputerisasi Akuntansi</option>
-                            <option value="D3 - Manajemen Informatika">D3 - Manajemen Informatika</option>
-                            <option value="S1 - Sistem Informasi">SI - Sistem Informasi</option>
-                            <option value="S1 - Teknik Informatika">SI - Teknik Informatika</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Pilih Program Studi 2:</label>
-                        <select class="form-control" name="prog2">
-                            <option value="D3 - Teknik Komputer">D3 - Teknik Komputer</option>
-                            <option value="D3 - Komputerisasi Akuntansi">D3 - Komputerisasi Akuntansi</option>
-                            <option value="D3 - Manajemen Informatika">D3 - Manajemen Informatika</option>
-                            <option value="S1 - Sistem Informasi">SI - Sistem Informasi</option>
-                            <option value="S1 - Teknik Informatika">SI - Teknik Informatika</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Daftar</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-
-            </div>
-        </form>
-    </div>
+              </div>
+          </div>
+      </main>
+             
 </body>
+
+<!-- Jquery JS-->
+    <script src="{{asset('vendor/jquery-3.2.1.min.js')}}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+    <!-- Vendor JS       -->
+    <script src="{{asset('vendor/slick/slick.min.js')}}">
+    </script>
+    <script src="{{asset('vendor/wow/wow.min.js')}}"></script>
+    <script src="{{asset('vendor/animsition/animsition.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
+    </script>
+    <script src="{{asset('vendor/counter-up/jquery.waypoints.min.js')}}"></script>
+    <script src="{{asset('vendor/counter-up/jquery.counterup.min.js')}}">
+    </script>
+    <script src="{{asset('vendor/circle-progress/circle-progress.min.js')}}"></script>
+    <script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('vendor/chartjs/Chart.bundle.min.js')}}"></script>
+    <script src="{{asset('vendor/select2/select2.min.js')}}">
+    </script>
+
+    <!-- Main JS-->
+    <script src="{{asset('js/dem.js')}}"></script>
+
+</body>
+
 </html>
+<!-- end document-->
