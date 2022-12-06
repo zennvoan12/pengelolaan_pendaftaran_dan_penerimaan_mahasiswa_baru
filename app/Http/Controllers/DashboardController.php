@@ -130,7 +130,7 @@ class DashboardController extends Controller
         }
 
         $pendaftar->save();
-
+        
         return redirect('/dashboard');
     }
 
