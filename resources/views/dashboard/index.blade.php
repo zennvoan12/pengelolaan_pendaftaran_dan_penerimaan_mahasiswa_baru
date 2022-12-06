@@ -112,7 +112,7 @@
                 </div>
             </div>
             <hr/>
-            <div class="table-responsive-sm">
+            <div class="table-responsive">
                 <table class="table table-hover bg-white" id="myTable">
                     <thead>
                         <th>No Registrasi</th>
