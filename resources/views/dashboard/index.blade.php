@@ -112,11 +112,12 @@
                 </div>
             </div>
             <hr/>
-            <div class="table-responsive-sm">
+            <div class="table-responsive">
                 <table class="table table-hover bg-white" id="myTable">
                     <thead>
                         <th>No Registrasi</th>
                         <th>Nama</th>  
+                        <th>Total Nilai</th>
                         <th>Aksi</th>  
                     </thead>
                     <tbody>
@@ -124,6 +125,25 @@
                         <tr>
                             <td>{{$item->no_reg}}</td>
                             <td>{{$item->nama}}</td>
+                            <td>
+                                @php
+                                    $indonesia = $item->nilai_indonesia;
+                                    $nilaiIndonesia = explode("," , $indonesia);
+                                    $total_indonesia = array_sum($nilaiIndonesia);
+
+                                    $inggris = $item->nilai_inggris;
+                                    $nilaiinggris = explode("," , $inggris);
+                                    $total_inggris = array_sum($nilaiinggris);
+
+                                    $mtk = $item->nilai_mtk;
+                                    $nilaimtk = explode("," , $mtk);
+                                    $total_mtk = array_sum($nilaimtk);
+
+                                    $total_nilai = $total_mtk + $total_indonesia + $total_inggris;
+
+                                @endphp
+                                {{$total_nilai}}
+                            </td>
                             <td>
                                 <a href="/dashboard/lihat/{{$item->no_reg}}" class="btn btn-success">Lihat</a>
                                 @if ($item->status == true)

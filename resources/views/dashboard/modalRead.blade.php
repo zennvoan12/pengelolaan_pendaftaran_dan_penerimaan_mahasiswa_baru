@@ -226,6 +226,41 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="alert alert-primary">
+                                    <strong>Berkas Pendudukung</strong>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @if ($pendaftar->foto != null)
+                                            @php
+                                                $foto = $pendaftar->foto;
+                                                echo '<img src="/storage/foto_diri/' . $foto . '" width="100%" height="200px" >'
+                                                @endphp
+                                            <br/>
+                                            <label>Keterangan</label>
+                                            @else
+                                            <p class="big">Belum mengupload foto diri</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            @if ($pendaftar->berkas != null)
+                                            @php
+                                                $berkas = $pendaftar->berkas;
+                                                echo '<iframe src="/storage/berkas_pendukung/'. $berkas .'" width="100%" height="500px"></iframe>'
+                                                @endphp
+                                            <br/>
+                                            <label>Keterangan</label>
+                                            @else
+                                            <p class="big">Belum mengupload berkas pendukung</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
