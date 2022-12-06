@@ -9,7 +9,7 @@
                 </button>
             </div>
                 <div class="modal-body">
-                    <form id="form" method="post" action="/dashboard/input-form-registrasi">
+                    <form id="form" method="post" action="/dashboard/input-form-registrasi" enctype="multipart/form-data">
                     @csrf
                         <div class="alert alert-primary">
                             <strong>Data Diri</strong>
@@ -202,6 +202,23 @@
                                                 <option value="S1 - Teknik Informatika">S1 - Teknik Sipil</option>
                                                 <option value="S1 - Teknik Informatika">S1 - Teknik Industri</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alert alert-primary">
+                                    <strong>Berkas Pendudukung</strong>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Upload foto diri</label>
+                                            <input type="file" name="foto" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Upload Berkas Pendukung</label>
+                                            <input type="file" name="berkas" class="form-control">
                                         </div>
                                     </div>
                                 </div>
