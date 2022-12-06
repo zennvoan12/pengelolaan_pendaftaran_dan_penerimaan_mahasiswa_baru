@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pendaftar;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -95,5 +96,34 @@ class DashboardController extends Controller
     {
         $item = Pendaftar::find($id);
         return view ('dashboard.showPendaftar', compact ('item'));
+    }
+
+    public function nonaktif(Request $request)
+    {
+        $pendaftar = Pendaftar::all();
+        foreach ($pendaftar as $p){
+            $z = $p['status'];
+            print_r($z);
+
+            if ($z != true) {
+                $datasave = [
+                    'status' => true,
+                ];
+                DB::table('pendaftars')->update($datasave);
+            } else {
+                $datasave = [
+                    'status' => false,
+                ];
+                DB::table('pendaftars')->update($datasave);
+            }
+        }
+
+        // $status[] = $request->status;
+
+        // for($i= 0 ; $i<count($status);$i++){
+            
+        //     }
+
+        return redirect('/dashboard');
     }
 }
