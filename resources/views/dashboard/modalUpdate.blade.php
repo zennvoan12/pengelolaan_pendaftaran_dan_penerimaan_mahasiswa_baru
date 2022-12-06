@@ -9,7 +9,7 @@
                 </button>
             </div>
                 <div class="modal-body">
-                    <form id="form" method="post" action="/dashboard/edit-form-registrasi">
+                    <form id="form" method="post" action="/dashboard/edit-form-registrasi" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                         <div class="alert alert-primary">
@@ -225,6 +225,44 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="alert alert-primary">
+                                    <strong>Berkas Pendudukung</strong>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @if ($pendaftar->foto != null)
+                                            @php
+                                                $foto = $pendaftar->foto;
+                                                echo '<img src="/storage/foto_diri/' . $foto . '" width="100%" height="200px" >'
+                                                @endphp
+                                            <br/>
+                                            <label>Keterangan</label>
+                                            @else
+                                            <p class="big">Belum mengupload foto diri</p>
+                                            @endif
+                                            <input type="file" name="foto" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            @if ($pendaftar->berkas != null)
+                                            @php
+                                                $berkas = $pendaftar->berkas;
+                                                echo '<iframe src="/storage/berkas_pendukung/'. $berkas .'" width="100%" height="500px"></iframe>'
+                                                @endphp
+                                            <br/>
+                                            <label>Keterangan</label>
+                                            @else
+                                            <p class="big">Belum mengupload berkas pendukung</p>
+                                            @endif
+                                            <input type="file" name="berkas" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         <div class="modal-footer">
                                 <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>

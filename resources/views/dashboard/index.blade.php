@@ -67,7 +67,7 @@
 @if ($pendaftar == true)
 @include('dashboard.modalUpdate')    
 @endif
-@if ($pendaftar->status == false)
+@if ($pendaftar == true && $pendaftar->status == false)
 @include('dashboard.modalRead')    
 @endif
 {{-- <div class="row">
