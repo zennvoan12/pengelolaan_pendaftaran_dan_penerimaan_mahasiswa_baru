@@ -242,6 +242,7 @@
                                             <p class="big">Belum mengupload foto diri</p>
                                             @endif
                                             <input type="file" name="foto" class="form-control">
+                                            <input type="hidden" name="old_foto" value="{{$pendaftar->foto}}">
                                         </div>
                                     </div>
                                 </div>
@@ -259,10 +260,10 @@
                                             <p class="big">Belum mengupload berkas pendukung</p>
                                             @endif
                                             <input type="file" name="berkas" class="form-control">
+                                            <input type="hidden" name="old_berkas" value="{{$pendaftar->berkas}}">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </div>
                         <div class="modal-footer">
                                 <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
