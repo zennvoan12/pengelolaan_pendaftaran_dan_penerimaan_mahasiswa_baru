@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pendaftar;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -50,7 +51,7 @@ class DashboardController extends Controller
 
         if ($request->hasFile('foto')){
             $ext = $request->file('foto')->extension();
-            $foto = 'foto_'.$nama.$user.time().'.'.$ext;
+            $foto = 'foto_'.$nama.'_'.$user.'_'.time().'.'.$ext;
 
             $request->file('foto')->storeAs(
                 'public/foto_diri', $foto
@@ -59,7 +60,7 @@ class DashboardController extends Controller
         }
         if ($request->hasFile('berkas')){
             $ext = $request->file('berkas')->extension();
-            $berkas = 'berkas_pendukung_'.$nama.$user.time().'.'.$ext;
+            $berkas = 'berkas_pendukung_'.$nama.'_'.$user.'_'.time().'.'.$ext;
 
             $request->file('berkas')->storeAs(
                 'public/berkas_pendukung', $berkas
@@ -80,8 +81,10 @@ class DashboardController extends Controller
         $indonesia = implode(",", $request['indonesia']);
         $inggris = implode(",", $request['inggris']);
         $mtk = implode(",", $request['mtk']);
+        $user = $request->user_id;
+        $nama = $request->nama;
 
-        $pendaftar->nama = $request->nama;
+        $pendaftar->nama = $nama;
         $pendaftar->nik = $request->nik;
         $pendaftar->tempat_lahir = $request->tempat_lahir;
         $pendaftar->tanggal_lahir = $request->tanggal_lahir;
@@ -99,7 +102,32 @@ class DashboardController extends Controller
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
         $pendaftar->pilihan_prodi = $request->prodi;
-        $pendaftar->user_id = $request->user_id;
+        $pendaftar->user_id = $user;
+
+        if ($request->hasFile('foto')){
+            $ext = $request->file('foto')->extension();
+            $foto = 'foto_'.$nama.'_'.$user.'_'.time().'.'.$ext;
+
+            $request->file('foto')->storeAs(
+                'public/foto_diri', $foto
+            );
+            
+            Storage::delete('public/foto_diri/'.$request->old_foto);
+            
+            $pendaftar->foto = $foto;
+        }
+        if ($request->hasFile('berkas')){
+            $ext = $request->file('berkas')->extension();
+            $berkas = 'berkas_pendukung_'.$nama.'_'.$user.'.'.$ext;
+
+            $request->file('berkas')->storeAs(
+                'public/berkas_pendukung', $berkas
+            );
+            
+            Storage::delete('public/berkas_pendukung/'.$request->old_berkas);
+
+            $pendaftar->berkas = $berkas;
+        }
 
         $pendaftar->save();
 
