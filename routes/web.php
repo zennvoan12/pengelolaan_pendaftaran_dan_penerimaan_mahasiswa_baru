@@ -37,4 +37,5 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::post('/dashboard/input-form-registrasi', 'create');
     Route::put('/dashboard/edit-form-registrasi', 'update');
     Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show');
+    Route::patch('/dashboard/nonaktif', 'nonaktif');
 });

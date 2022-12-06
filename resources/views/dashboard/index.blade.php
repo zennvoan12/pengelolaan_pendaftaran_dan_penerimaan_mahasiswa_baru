@@ -92,6 +92,26 @@
             </div>
             <br/>
             <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <form action="/dashboard/nonaktif" method="post">
+                            @method('patch')
+                            @csrf
+                            @foreach ($calonMhs as $value)
+                            {{-- <input type="hidden" value="{{$value->no_reg}}" name="reg[]">    
+                            <input type="hidden" value="{{$value->status}}" name="status[]"> --}}
+                            @endforeach
+                            @if ($value->status == true)
+                            <button type="submit" name="Submit" id="Submit" class="btn btn-warning">Nonaktifkan Fungsi Edit Form Registrasi</button>        
+                            @else
+                            <button type="submit" name="Submit" id="Submit" class="btn btn-danger">Aktifkan Fungsi Edit Form Registrasi</button>    
+                            @endif
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr/>
             <div class="table-responsive-sm">
                 <table class="table table-hover bg-white" id="myTable">
                     <thead>
@@ -106,6 +126,9 @@
                             <td>{{$item->nama}}</td>
                             <td>
                                 <a href="/dashboard/lihat/{{$item->no_reg}}" class="btn btn-success">Lihat</a>
+                                @if ($item->status == true)
+                                <button class="btn btn-primary">Edit</button>
+                                @endif
                             </td>    
                         </tr>    
                         @empty
