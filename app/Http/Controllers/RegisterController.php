@@ -16,7 +16,7 @@ class RegisterController extends Controller
     protected function create(Request $request)
     {
         $user = new User;
-        $user->name = $request->name;
+        $user->username = $request->username;
         $user->email = $request->email;
         $hash = Hash::make($request->password);
         $user->password = $hash;

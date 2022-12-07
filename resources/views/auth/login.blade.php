@@ -49,8 +49,8 @@
                             <form action="/login" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <label>Username atau Email Address</label>
+                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
