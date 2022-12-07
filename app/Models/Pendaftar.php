@@ -11,7 +11,7 @@ class Pendaftar extends Model
 
     protected $primaryKey = 'no_reg';
 
-    // protected $guarded = [];
+    protected $guarded = [];
 
     // protected $fillable = [
         // 'no_reg',
