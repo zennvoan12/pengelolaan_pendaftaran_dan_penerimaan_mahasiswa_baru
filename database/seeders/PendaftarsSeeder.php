@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Faker\Factory as faker;
 use App\Models\User;
-use App\Models\Pendaftar;
+use App\Models\Jurusan;
+use Illuminate\Support\Facades\DB;
 
 class PendaftarsSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class PendaftarsSeeder extends Seeder
         $faker = Faker::create('id_ID');
         $user = User::all();
         foreach ($user as $item) {
+            $jurusan = Jurusan::inRandomOrder()->first();
                 $x = 0;
                 $nilaiIndonesia = null;
                         $nilaiInggris = null;
@@ -35,7 +37,7 @@ class PendaftarsSeeder extends Seeder
     
                     $id = $item['id'];
                     $email = $item['email'];
-                            $data = [
+                            DB::table('pendaftars')->insert([
                                 'no_reg' => rand(0000000000 , 9999999999),
                                 'nama' => $faker->name,
                                 'nik' => rand(0000000000000000, 1000000000000000),
@@ -49,15 +51,15 @@ class PendaftarsSeeder extends Seeder
                                 'no_telp' => rand(00000000000, 20000000000),
                                 'alamat' => $faker->address,
                                 'kode_pos' => $faker->postcode,
-                                'pendidikan' => $faker->randomElement(['SMS', 'SMK']),
+                                'pendidikan' => $faker->randomElement(['SMA', 'SMK']),
                                 'asal_sekolah' => $faker->randomElement(['SMK BPC', 'SMK ABC', 'SMA IBU', 'SMA DUA']),
                                 'nilai_indonesia' => $indonesia,
                                 'nilai_inggris' => $inggris,
                                 'nilai_mtk' => $mtk,
-                                'pilihan_prodi' => $faker->randomElement(['Teknik Informatika', 'Teknik Sipil']),
-                                'user_id' => $id
-                            ];
-                            Pendaftar::create($data);
+                                'jurusan_id' => $jurusan->id,
+                                'user_id' => $id,
+                                'gelombang_id' => 1
+                            ]);
 
                         }
     }

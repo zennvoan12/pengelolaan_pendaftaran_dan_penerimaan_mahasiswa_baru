@@ -13,6 +13,11 @@ class Pendaftar extends Model
 
     protected $guarded = [];
 
+    public function jurusans()
+    {
+        return $this->belongsTo(Jurusan::class, 'jurusan_id');
+    }
+
     // protected $fillable = [
         // 'no_reg',
         // 'nama',

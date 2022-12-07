@@ -9,5 +9,8 @@ class Jurusan extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'kode_jurusan';
+    public function pendaftar()
+    {
+        return $this->hasMany(Pendaftar::class, 'jurusan_id');
+    }
 }

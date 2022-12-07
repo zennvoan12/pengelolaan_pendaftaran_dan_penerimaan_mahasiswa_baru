@@ -7,15 +7,23 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Pendaftar;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Jurusan;
 
 class DashboardController extends Controller
 {
     public function index()
     {
         $id = Auth::user()->id;
+        $role = Auth::user()->role_id;
         $calonMhs = Pendaftar::all();
         $pendaftar = Pendaftar::where('user_id', $id)->first();
-        return view ('dashboard.index', compact ('pendaftar', 'id', 'calonMhs'));
+        $jurusan = Jurusan::all();
+        if($role == 2){
+            $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
+            return view ('dashboard.index', compact ('pendaftar', 'id', 'calonMhs', 'jurusan', 'pilihanJurusan'));
+        }else{
+            return view ('dashboard.index', compact ('pendaftar', 'id', 'calonMhs', 'jurusan'));
+        }
     }
 
     public function create(Request $request)
@@ -46,8 +54,9 @@ class DashboardController extends Controller
         $pendaftar->nilai_indonesia = $indonesia;
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
-        $pendaftar->pilihan_prodi = $request->prodi;
+        $pendaftar->jurusan_id = $request->jurusan;
         $pendaftar->user_id = $user;
+        $pendaftar->gelombang_id = 1;
 
         if ($request->hasFile('foto')){
             $ext = $request->file('foto')->extension();
@@ -101,7 +110,7 @@ class DashboardController extends Controller
         $pendaftar->nilai_indonesia = $indonesia;
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
-        $pendaftar->pilihan_prodi = $request->prodi;
+        $pendaftar->pilihan_jurusan = $request->jurusan;
         $pendaftar->user_id = $user;
 
         if ($request->hasFile('foto')){
@@ -144,17 +153,17 @@ class DashboardController extends Controller
     {
         $pendaftar = Pendaftar::all();
         foreach ($pendaftar as $p){
-            $z = $p['status'];
+            $z = $p['can_update'];
             print_r($z);
 
             if ($z != true) {
                 $datasave = [
-                    'status' => true,
+                    'can_update' => true,
                 ];
                 DB::table('pendaftars')->update($datasave);
             } else {
                 $datasave = [
-                    'status' => false,
+                    'can_update' => false,
                 ];
                 DB::table('pendaftars')->update($datasave);
             }

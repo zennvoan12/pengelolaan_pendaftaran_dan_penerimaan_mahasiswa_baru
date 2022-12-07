@@ -13,10 +13,12 @@ class CreateGelombangTable extends Migration
      */
     public function up()
     {
-        Schema::create('gelombang', function (Blueprint $table) {
-            $table->int('gelombang_id');
+        Schema::create('gelombangs', function (Blueprint $table) {
+            $table->char('id_gelombang', 1);
             $table->char('nama_gelombang', 11);
             $table->timestamps();
+
+            $table->primary('id_gelombang');
         });
     }
 
