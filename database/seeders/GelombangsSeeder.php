@@ -16,7 +16,7 @@ class GelombangsSeeder extends Seeder
     {
         $data = ['Gelombang 1', 'Gelombang 2', 'Gelombang 3'];
         foreach($data as $value => $item){
-            DB::table('gelombang')->insert([
+            DB::table('gelombangs')->insert([
                 'id_gelombang' => $value+1,
                 'nama_gelombang' => $item
             ]);

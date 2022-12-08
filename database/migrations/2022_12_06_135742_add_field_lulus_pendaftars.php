@@ -14,7 +14,7 @@ class AddFieldLulusPendaftars extends Migration
     public function up()
     {
         Schema::table('pendaftars', function (Blueprint $table) {
-            $table->char('lulus', 1)->after('status')->default(2);
+            $table->char('lulus', 1)->after('can_update')->default(2);
         });
     }
 

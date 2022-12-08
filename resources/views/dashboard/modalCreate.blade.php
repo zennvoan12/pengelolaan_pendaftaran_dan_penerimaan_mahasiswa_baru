@@ -193,14 +193,11 @@
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <label>Pilih Program Studi</label>
-                                            <select class="form-control" name="prodi">
-                                                <option value="D3 - Teknik Komputer">D3 - Teknik Komputer</option>
-                                                <option value="D3 - Komputerisasi Akuntansi">D3 - Komputerisasi Akuntansi</option>
-                                                <option value="D3 - Manajemen Informatika">D3 - Manajemen Informatika</option>
-                                                <option value="S1 - Sistem Informasi">S1 - Sistem Informasi</option>
-                                                <option value="S1 - Teknik Informatika">S1 - Teknik Informatika</option>
-                                                <option value="S1 - Teknik Informatika">S1 - Teknik Sipil</option>
-                                                <option value="S1 - Teknik Informatika">S1 - Teknik Industri</option>
+                                            <select class="form-control" name="jurusan">
+                                                <option value="">--Pilih Program Studi Yang Akan Diambil</option>
+                                                @foreach ($jurusan as $item)
+                                                <option value="{{$item->id}}">{{$item->nama_jurusan}}</option>    
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

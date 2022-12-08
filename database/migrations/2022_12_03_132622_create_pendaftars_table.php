@@ -32,7 +32,8 @@ class CreatePendaftarsTable extends Migration
             $table->char('nilai_indonesia', 50);
             $table->char('nilai_inggris', 50);
             $table->char('nilai_mtk', 50);
-            $table->char('pilihan_prodi', 50);
+            $table->bigInteger('jurusan_id')->unsigned();
+            $table->char('gelombang_id');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 
@@ -40,7 +41,13 @@ class CreatePendaftarsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('cascade')
-            ->onUpdate('cascade');                           
+            ->onUpdate('cascade'); 
+            $table->foreign('jurusan_id')->references('id')->on('jurusans')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->foreign('gelombang_id')->references('id_gelombang')->on('gelombangs')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');                       
         });
     }
 

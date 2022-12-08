@@ -36,7 +36,7 @@
                         <tr>
                             <td>{{$pendaftar->no_reg}}</td>
                             <td>{{$pendaftar->nama}}</td>
-                            @if ($pendaftar->status == true)
+                            @if ($pendaftar->can_update == true)
                             <td>
                                 <button type="button" id="btn-edit-registrasi" class="btn btn-info sm" data-toggle="modal"
                                 data-target="#formEditRegistrasiModal" data-id="{{$pendaftar->no_reg}}">Edit</button>      
@@ -102,7 +102,7 @@
                             {{-- <input type="hidden" value="{{$value->no_reg}}" name="reg[]">    
                             <input type="hidden" value="{{$value->status}}" name="status[]"> --}}
                             @endforeach
-                            @if ($value->status == true)
+                            @if ($value->can_update == true)
                             <button type="submit" name="Submit" id="Submit" class="btn btn-warning">Nonaktifkan Fungsi Edit Form Registrasi</button>        
                             @else
                             <button type="submit" name="Submit" id="Submit" class="btn btn-danger">Aktifkan Fungsi Edit Form Registrasi</button>    
@@ -146,7 +146,7 @@
                             </td>
                             <td>
                                 <a href="/dashboard/lihat/{{$item->no_reg}}" class="btn btn-success">Lihat</a>
-                                @if ($item->status == true)
+                                @if ($item->can_update == true)
                                 <button class="btn btn-primary">Edit</button>
                                 @endif
                             </td>    
