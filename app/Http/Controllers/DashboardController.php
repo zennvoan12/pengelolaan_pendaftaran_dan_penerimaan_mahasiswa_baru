@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $calonMhs = Pendaftar::all();
         $pendaftar = Pendaftar::where('user_id', $id)->first();
         $jurusan = Jurusan::all();
-        if($role == 2){
+        if($role == 2 && empty($pendaftar) == false){
             $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
             return view ('dashboard.index', compact ('pendaftar', 'id', 'calonMhs', 'jurusan', 'pilihanJurusan'));
         }else{
@@ -110,7 +110,7 @@ class DashboardController extends Controller
         $pendaftar->nilai_indonesia = $indonesia;
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
-        $pendaftar->pilihan_jurusan = $request->jurusan;
+        $pendaftar->jurusan_id = $request->jurusan;
         $pendaftar->user_id = $user;
 
         if ($request->hasFile('foto')){
@@ -140,13 +140,14 @@ class DashboardController extends Controller
 
         $pendaftar->save();
         
-        return redirect('/dashboard');
+        return redirect()->back();
     }
 
     public function show($id)
     {
-        $item = Pendaftar::find($id);
-        return view ('dashboard.showPendaftar', compact ('item'));
+        $pendaftar = Pendaftar::find($id)->first();
+        $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
+        return view ('dashboard.showPendaftar', compact ('pendaftar', 'pilihanJurusan'));
     }
 
     public function nonaktif(Request $request)
@@ -175,6 +176,6 @@ class DashboardController extends Controller
             
         //     }
 
-        return redirect('/dashboard');
+        return redirect()->back();
     }
 }
