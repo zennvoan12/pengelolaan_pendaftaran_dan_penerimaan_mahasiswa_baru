@@ -8,7 +8,8 @@ use App\Models\Pendaftar;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Jurusan;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PendaftarExport;
 class DashboardController extends Controller
 {
     public function index()
@@ -152,12 +153,10 @@ class DashboardController extends Controller
 
     public function nonaktif(Request $request)
     {
-        $pendaftar = Pendaftar::all();
+        $pendaftar = Pendaftar::pluck('can_update')->all();
         foreach ($pendaftar as $p){
-            $z = $p['can_update'];
-            print_r($z);
 
-            if ($z != true) {
+            if ($p != true) {
                 $datasave = [
                     'can_update' => true,
                 ];
@@ -178,4 +177,10 @@ class DashboardController extends Controller
 
         return redirect()->back();
     }
+
+    public function export()
+    {
+        return Excel::download(new PendaftarExport, 'pendaftar_yang_lulus.xlsx');
+    }
+
 }
