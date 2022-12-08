@@ -24,7 +24,7 @@ Route::get('/pendaftaran', [LandingController::class, 'daftar']);
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('/login', 'authenticate');  
-    Route::post('/logout', 'logout');
+    Route::post('/logout', 'logout')->middleware('auth');
 });
 
 Route::controller(RegisterController::class)->group(function (){
@@ -36,6 +36,7 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::get('/dashboard', 'index');
     Route::post('/dashboard/input-form-registrasi', 'create');
     Route::put('/dashboard/edit-form-registrasi', 'update');
-    Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show');
+    Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show')->middleware('admin');
     Route::patch('/dashboard/nonaktif', 'nonaktif');
+    Route::get('/dashboard/pendaftar/export', 'export')->name('export.excel')->middleware('admin');
 });
