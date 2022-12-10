@@ -33,27 +33,27 @@ class DashboardController extends Controller
 
 
         $validate = $request->validate([
-            "pendaftar" => [
-                "nama" => "required|max:50",
-                "nik" => "required|max:16",
-                "tempat_lahir" => "required|max:30",
-                "tanggal_lahir" => "required",
-                "jenis_kelamin" => "required",
-                "kewarganegaraan" => "required",
-                "agama" => "required",
-                "nama_ibu" => "required",
-                "email_daftar" => "required",
-                "no_telp" => "required",
-                "alamat" => "required",
-                "kode_pos" => "required|max:5",
-                "pendidikan" => "required",
-                "asal_sekolah" => "required",
-                "nilai_indonesia" => "required|max:2",
-                "nilai_inggris" => "required|max:2",
-                "nilai_mtk" => "required|2"
+
+            "nama" => "required|max:50",
+            "nik" => "required|max:16",
+            "tempat_lahir" => "required|max:30",
+            "tanggal_lahir" => "required",
+            // "jenis_kelamin" => "required",
+            "kewarganegaraan" => "required",
+            "agama" => "required",
+            "nama_ibu" => "required",
+            "email_daftar" => "required",
+            "no_telp" => "required",
+            "alamat" => "required",
+            "kode_pos" => "required|max:5",
+            "pendidikan" => "required",
+            // "asal_sekolah" => "required",
+            // "nilai_indonesia" => "required|max:2",
+            // "nilai_inggris" => "required|max:2",
+            // "nilai_mtk" => "required|max:2"
 
 
-            ]
+
         ]);
         $pendaftar = new Pendaftar;
         $indonesia = implode(",", $request['indonesia']);
@@ -108,31 +108,45 @@ class DashboardController extends Controller
 
         $pendaftar->save();
 
-        return redirect('/dashboard');
+        $notification = [
+            'message' => 'Anda Berhasil Terdaftar',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('dashboard')->with($notification);
     }
 
     public function update(Request $request)
     {
-        $validate = $request->validate([
-            "pendaftar" => [
-                "nama" => "required|50",
-                "nik" => "required|16",
-                "tempat_lahir" => "required|30",
+        $validate = $request->validate(
+            [
+
+                "nama" => "required|max:50",
+                "nik" => "required|max:16",
+                "tempat_lahir" => "required|max:30",
                 "tanggal_lahir" => "required",
-                "jenis_kelamin" => "required",
+                // "jenis_kelamin" => "required",
                 "kewarganegaraan" => "required",
                 "agama" => "required",
                 "nama_ibu" => "required",
-                "email_daftar" => "required",
+                "email_daftar" => "required|exists:users",
                 "no_telp" => "required",
                 "alamat" => "required",
-                "kode_pos" => "required|5",
+                "kode_pos" => "required|max:5",
                 "pendidikan" => "required",
-                "asal_sekolah" => "required"
+                // "asal_sekolah" => "required",
+                // "nilai_indonesia" => "required|max:2",
+                // "nilai_inggris" => "required|max:2",
+                // "nilai_mtk" => "required|max:2"
 
-
+            ],
+            [
+                'kode_pos.required' => 'Masa Ga D isi Mas',
+                'kode_pos.max' => 'Kode Pos Harus Isi 5 Bos'
             ]
-        ]);
+        );
+
+
         $id = Auth::user()->id;
         $pendaftar = Pendaftar::where('user_id', $id)->first();
         $indonesia = implode(",", $request['indonesia']);
@@ -190,7 +204,11 @@ class DashboardController extends Controller
 
         $pendaftar->save();
 
-        return redirect()->back();
+        $notification = [
+            'message' => 'Data Berhasil Di Ubah',
+            'alert-type' => 'success'
+        ];
+        return redirect()->back()->with($notification);
     }
 
     public function show($id)
@@ -224,7 +242,11 @@ class DashboardController extends Controller
 
         //     }
 
-        return redirect()->back();
+        $notification = [
+            'message' => 'Data Anda telah Di Ubah',
+            'alert-type' => 'success'
+        ];
+        return redirect()->back()->with($notification);
     }
 
     public function export()
