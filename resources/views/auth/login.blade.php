@@ -66,7 +66,7 @@
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
                                 
-                            </form>
+                            </form> 
                             <div class="register-link">
                                 <p>
                                     Don't you have account?

@@ -18,8 +18,7 @@
                     <div class="overview-wrap">
                         <button class="au-btn au-btn-icon au-btn--blue" data-toggle="modal"
                         data-target="#formRegistrasiModal">
-                        <i class="zmdi zmdi-plus"></i>Isi Form Registrasi</button>
-                        <button class="btn btn-primary" id="contoh">Klik disini</button>
+                        <i class="zmdi zmdi-plus"></i>Isi Form Registrasi</button>            
                     </div>
                 </div>
             </div>
@@ -37,12 +36,12 @@
                             <td>{{$pendaftar->nama}}</td>
                             @if ($pendaftar->can_update == true)
                             <td>
-                                <button type="button" id="btn-edit-registrasi" class="btn btn-info sm" data-toggle="modal"
-                                data-target="#formEditRegistrasiModal" data-id="{{$pendaftar->no_reg}}">Edit</button>      
+                                <button type="button" id="btn-edit-registrasi" class="btn btn-warning sm" data-toggle="modal"
+                                data-target="#formEditRegistrasiModal" onclick="enable()" data-id="{{$pendaftar->no_reg}}">Edit</button>      
                             </td>   
                             @else
                             <td>
-                                <button type="button" id="btn-edit-registrasi" class="btn btn-warning sm" data-toggle="modal"
+                                <button type="button" id="btn-read-registrasi" class="btn btn-info success" data-toggle="modal"
                                 data-target="#formReadRegistrasiModal" data-id="{{$pendaftar->no_reg}}">Lihat</button>      
                             </td>    
                             @endif
@@ -66,8 +65,8 @@
 @if ($pendaftar == true)
 @include('dashboard.modalUpdate')    
 @endif
-@if ($pendaftar == true && $pendaftar->status == false)
-@include('dashboard.modalRead')    
+@if ($pendaftar == true && $pendaftar->can_update == false)
+@include('dashboard.modalRead')   
 @endif
 {{-- <div class="row">
     <div class="col-md-12">
