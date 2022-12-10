@@ -6,13 +6,13 @@
         <div class="form-group">
             <label>Nama Lengkap:</label>
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" id="user_id">
-            <input type="text" name="nama" class="form-control" value="{{$pendaftar->nama}}" disabled>
+            <input type="text" name="nama" disabled class="form-control" value="{{$pendaftar->nama}}">
         </div>
     </div>
     <div class="col-sm-5">
         <div class="form-group">
             <label class="small">Nomor Identitas (NIK / Passport / Driving License):</label>
-            <input type="text" name="nik" value="{{$pendaftar->nik}}" class="form-control" disabled>
+            <input type="number" disabled id="nik" name="nik" value="{{$pendaftar->nik}}" class="form-control">
         </div>
     </div>
 </div>
@@ -20,13 +20,13 @@
     <div class="col-sm-4">
         <div class="form-group">
             <label>Tempat Lahir:</label>
-            <input type="text" name="tempat_lahir" value="{{$pendaftar->tempat_lahir}}" class="form-control" disabled>
+            <input type="text" name="tempat_lahir" value="{{$pendaftar->tempat_lahir}}" disabled class="form-control">
         </div>
     </div>
     <div class="col-sm-3">
         <div class="form-group">
             <label>Tanggal Lahir:</label>
-            <input type="date" name="tanggal_lahir" class="form-control" value="{{$pendaftar->tanggal_lahir}}" disabled>
+            <input type="date" disabled name="tanggal_lahir" class="form-control" value="{{$pendaftar->tanggal_lahir}}">
         </div>
     </div>
     <div class="col-sm-5">
@@ -76,7 +76,7 @@
             <div class="col-sm-5">
                 <div class="form-group">
                     <label>Nama Ibu Kandung:</label>
-                    <input type="text" name="nama_ibu" class="form-control" value="{{$pendaftar->nama_ibu}}" disabled>
+                    <input type="text" name="nama_ibu" disabled class="form-control" value="{{$pendaftar->nama_ibu}}">
                 </div>
             </div>
         </div>
@@ -85,13 +85,13 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Email:</label>
-                    <input type="email" name="email_daftar" class="form-control" value="{{$pendaftar->email_daftar}}" disabled>
+                    <input type="email" name="email_daftar" disabled class="form-control" value="{{$pendaftar->email_daftar}}">
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>No Telp / No Whatsapp</label>
-                    <input type="text" name="no_telp" class="form-control" value="{{$pendaftar->no_telp}}" disabled>
+                    <input type="text" name="no_telp" disabled class="form-control" value="{{$pendaftar->no_telp}}">
                     <p class="small">Diawali kode negara. <br/> Contoh +62896xxx </p>
                 </div>
             </div>
@@ -103,13 +103,13 @@
             <div class="col-sm-5">
                 <div class="form-group">
                     <label>Alamat:</label>
-                    <textarea class="form-control" name="alamat" rows="2" id="alamat" disabled>{{$pendaftar->alamat}}</textarea>
+                    <textarea class="form-control" disabled name="alamat" rows="2" id="alamat">{{$pendaftar->alamat}}</textarea>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label>Kode Pos:</label>
-                    <input type="text" name="kode_pos" class="form-control" value="{{$pendaftar->kode_pos}}" disabled>
+                    <input type="text" name="kode_pos" disabled class="form-control" value="{{$pendaftar->kode_pos}}">
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Nama Sekolah:</label>
-                    <input type="text" name="sekolah" class="form-control" value="{{$pendaftar->asal_sekolah}}" disabled>
+                    <input type="text" name="sekolah" class="form-control" disabled value="{{$pendaftar->asal_sekolah}}">
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@
                                     $nilaiIndonesia = explode("," , $indonesia)
                                 @endphp
                                 @foreach ($nilaiIndonesia as $itemIndonesia)
-                                <td><input type="number" disabled name="indonesia[]" class="form-control" style="width: 60px;height: 50px" value="{{$itemIndonesia}}"></td> 
+                                <td><input disabled type="number" name="indonesia[]" class="form-control" style="width: 75px;height: 50px" value="{{$itemIndonesia}}"></td> 
                                 @endforeach
                             </tr>
                             <tr>
@@ -172,7 +172,7 @@
                                     $nilaiInggris = explode("," , $inggris)
                                 @endphp
                                 @foreach ($nilaiInggris as $itemInggris)
-                                <td><input type="number" disabled name="inggris[]" class="form-control" style="width: 60px;height: 50px" value="{{$itemInggris}}"></td> 
+                                <td><input disabled type="number" name="inggris[]" class="form-control" style="width: 75px;height: 50px" value="{{$itemInggris}}"></td> 
                                 @endforeach
                             </tr>
                             <tr>
@@ -182,9 +182,9 @@
                                     $nilaiMtk = explode("," , $mtk)
                                 @endphp
                                 @foreach ($nilaiMtk as $itemMtk)
-                                <td><input type="number" disabled name="mtk[]" class="form-control" style="width: 60px;height: 50px" value="{{$itemMtk}}"></td> 
+                                <td><input disabled type="number" name="mtk[]" class="form-control" style="width: 75px;height: 50px" value="{{$itemMtk}}"></td> 
                                 @endforeach
-                            </tr>
+                            </tr> 
                         </table>
                     </div>
                 </div>
@@ -198,8 +198,11 @@
             <div class="col-sm-8">
                 <div class="form-group"> 
                     <label>Pilihan Program Studi</label>
-                    <select class="form-control" name="prodi" disabled>
-                        <option selected>{{$pilihanJurusan->nama_jurusan}}</option>
+                    <select class="form-control" name="jurusan" disabled>
+                        <option value="{{$pilihanJurusan->id}}" selected>{{$pilihanJurusan->nama_jurusan}}</option> 
+                        @foreach ($jurusan as $item)
+                        <option value="{{$item->id}}">{{$item->nama_jurusan}}</option>    
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -208,7 +211,7 @@
             <strong>Berkas Pendudukung</strong>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="form-group">
                     @if ($pendaftar->foto != null)
                     @php
@@ -220,6 +223,10 @@
                     @else
                     <p class="big">Belum mengupload foto diri</p>
                     @endif
+                    <div id="foto">
+                        {{-- <input type="file" id="input_foto" name="foto" class="form-control"> --}}
+                        <input type="hidden" name="old_foto" value="{{$pendaftar->foto}}">
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,6 +243,10 @@
                     @else
                     <p class="big">Belum mengupload berkas pendukung</p>
                     @endif
+                    <div id="berkas">
+                        {{-- <input type="file" id="input" name="berkas" class="form-control"> --}}
+                        <input type="hidden" name="old_berkas" value="{{$pendaftar->berkas}}">
+                    </div>
                 </div>
             </div>
         </div>
