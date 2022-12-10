@@ -89,6 +89,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/dem.js') }} "></script>
     <script src="{{ asset('js/form.js') }} "></script>
+
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable();
