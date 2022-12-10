@@ -39,4 +39,5 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show')->middleware('admin');
     Route::patch('/dashboard/nonaktif', 'nonaktif');
     Route::get('/dashboard/pendaftar/export', 'export')->name('export.excel')->middleware('admin');
+    Route::post('/admin/nilai/import', 'import')->middleware('admin');
 });
