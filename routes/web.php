@@ -25,6 +25,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('/login', 'authenticate');  
     Route::post('/logout', 'logout')->middleware('auth');
+    Route::get('/forgetpass', 'forgetpass')->middleware('guest');
 });
 
 Route::controller(RegisterController::class)->group(function (){
@@ -39,4 +40,5 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show')->middleware('admin');
     Route::patch('/dashboard/nonaktif', 'nonaktif');
     Route::get('/dashboard/pendaftar/export', 'export')->name('export.excel')->middleware('admin');
+    Route::post('/admin/nilai/import', 'import')->middleware('admin');
 });

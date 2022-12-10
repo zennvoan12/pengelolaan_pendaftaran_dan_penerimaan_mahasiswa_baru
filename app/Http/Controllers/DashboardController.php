@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Jurusan;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendaftarExport;
-
 class DashboardController extends Controller
 {
     public function index()
@@ -214,8 +213,9 @@ class DashboardController extends Controller
     public function show($id)
     {
         $pendaftar = Pendaftar::find($id)->first();
+        $jurusan = Jurusan::all();
         $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
-        return view('dashboard.showPendaftar', compact('pendaftar', 'pilihanJurusan'));
+        return view ('dashboard.showPendaftar', compact ('pendaftar', 'pilihanJurusan'));
     }
 
     public function nonaktif(Request $request)
@@ -253,4 +253,5 @@ class DashboardController extends Controller
     {
         return Excel::download(new PendaftarExport, 'pendaftar_yang_lulus.xlsx');
     }
+
 }

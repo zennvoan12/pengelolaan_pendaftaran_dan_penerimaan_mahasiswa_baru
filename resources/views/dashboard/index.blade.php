@@ -114,12 +114,20 @@
                     <div class="overview-wrap">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="{{route('export.excel')}}" class="btn btn-info" target="_blank"><i class="fa fa-file-excel"></i> Export</a>
-                            <a href="" class="btn btn-warning">Import</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <br/>
+            <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" data-toggle="modal" data-target="#importDataModal" class="btn btn-secondary"><i class="fa fa-file-excel"></i> Import Nilai Ujian Dari File Excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <hr/>
             <div class="table-responsive">
                 <table class="table table-hover bg-white" id="myTable">
@@ -175,6 +183,31 @@
             </div> --}}
         </div>
     </div>
+</div>
+<div class="modal fade" id="importDataModal" tabindex="-1" aria-labelledby="exampleModalLable" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Import Data Nilai</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <div class="modal-body">
+        <form action="/admin/nilai/import" enctype="multipart/form-data" method="post">
+        @csrf
+        <div class="form-group">
+            <label for="cover">Upload File</label>
+            <input type="file" class="form-control" name="file"/>
+        </div>
+    </div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+    <button type="submit" class="btn btn-primary">Import Data</button>
+</form>
+</div>
+</div>
+</div>
 </div>
 @endcan
 @endsection

@@ -18,12 +18,12 @@ function enable() {
     a.appendChild(b);
 }
 
-function login() {
-    var value = document.querySelectorAll('.form-control');
-    var val = "<?php echo $pendaftar ?>";
-    if (val.length == 0) {
-        value.forEach(x => {
-            value.removeAttribute('disabled');
-        });
-    }
-}
+// function tes() {
+//     var value = document.querySelectorAll('.form-control');
+//     var val = "<?php echo $pendaftar ?>";
+//     if (val.length == 0) {
+//         value.forEach(x => {
+//             value.removeAttribute('value');
+//         });
+//     }
+// }
