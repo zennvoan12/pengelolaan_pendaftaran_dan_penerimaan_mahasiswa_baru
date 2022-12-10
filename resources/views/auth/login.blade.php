@@ -104,6 +104,7 @@
 
     <!-- Main JS-->
     <script src="{{asset('js/dem.js')}}"></script>
+    <script src="{{asset('js/form.js')}} "></script>
 
 </body>
 
