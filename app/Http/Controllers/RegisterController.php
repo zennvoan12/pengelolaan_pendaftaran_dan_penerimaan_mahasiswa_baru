@@ -38,6 +38,11 @@ class RegisterController extends Controller
         $user->password = $hash;
         $user->save();
 
-        return redirect('/login');
+        $notification = [
+            'message' => 'Anda Berhasil Mendaftar',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('login')->with($notification);
     }
 }
