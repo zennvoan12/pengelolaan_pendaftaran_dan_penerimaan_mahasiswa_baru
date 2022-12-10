@@ -45,7 +45,7 @@
                     <p></p>
                 
                     <ol class="steps">
-                        <li>Membuat <strong><a href="https://penerimaan.ui.ac.id/register"><em>account</em></a></strong> di situs penerimaan UI
+                        <li>Membuat <strong><a href="/register"><em>account</em></a></strong> di situs penerimaan UI
                             <p class="small">Klik <em>link</em> <strong>Buat Account</strong> di kanan atas lalu isi formulir yang muncul</p></li>
                             <li>Mengunggah <strong>foto</strong> berwarna ukuran 4x6 cm
                         <p class="small">Anda harus mengunggah foto sebelum dapat membuat pendaftaran</p>

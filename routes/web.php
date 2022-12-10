@@ -25,6 +25,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('/login', 'authenticate');  
     Route::post('/logout', 'logout')->middleware('auth');
+    Route::get('/forgetpass', 'forgetpass')->middleware('guest');
 });
 
 Route::controller(RegisterController::class)->group(function (){
