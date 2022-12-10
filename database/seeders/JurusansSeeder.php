@@ -18,12 +18,12 @@ class JurusansSeeder extends Seeder
         $ft = ['Teknik Informatika' , 'Teknik Sipil', 'Teknik Industri'];
         $faster = ['Agri Bisnis' , 'Agro Teknologi' , 'Administrasi Bisnis Internasional'];
         $febi = ['Ekonomi Syariah' , 'Perbankan Syariah' , 'Akuntansi Syariah'];
-        $fkip = ['Pendidikan Sastra dan Bahasa Indonesia', 
-                 'Pendidikan Pancasila dan Kewarganegaraan', 
+        $fkip = ['Pendidikan Sastra dan Bahasa Indonesia',
+                 'Pendidikan Pancasila dan Kewarganegaraan',
                  'Pendidikan Matematika',
                  'Pendidikan Jasmani Kesehatan dan Rekreasi',
                  'Pendidikan Bahasa Inggris'];
-        
+
         Jurusan::create([
             'kode_jurusan' => 'fh-' . rand(00000, 99999),
             'nama_jurusan' => 'Ilmu Hukum',
@@ -38,7 +38,7 @@ class JurusansSeeder extends Seeder
                 'fakultas_kode' => 'FT'
             ];
         Jurusan::create($data);
-        }   
+        }
         foreach($faster as $value){
             $kode = null;
             $kode = rand(00000, 99999);
