@@ -158,13 +158,12 @@
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <form action="/logout" method="post">
-                                    @csrf
-                                    <a>
-                                    <button type="submit">    
+                                    <a href="/logout" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                             <i class="zmdi zmdi-power"></i>Logout
-                                        </button>
                                     </a>
+                                    <form id="logout-form" action="/logout" method="POST" class="d-none">
+                                        @csrf
                                     </form>
                                 </div>
                             </div>

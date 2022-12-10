@@ -21,7 +21,7 @@
                 </div>
             </div>
             <hr/>     
-            @include('layouts.read_pendaftar')         
+            @include('layouts.formLayout')         
         </div>
     </div>
 </div>

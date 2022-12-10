@@ -10,10 +10,15 @@
                 </button>
             </div>
                 <div class="modal-body">
-                    @include('layouts.read_pendaftar')
-                        </div>
+                    @include('layouts.formLayout')
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
             </div>
+    </div>
 </div>    
 @endcan
 
