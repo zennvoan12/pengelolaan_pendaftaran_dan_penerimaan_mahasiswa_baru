@@ -46,11 +46,12 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="{{ route('password.update') }}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label>Password Baru</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Masukan Email Anda" autofocus required>
+                                    <input class="au-input au-input--full" type="text" name="password" placeholder="Masukan Password Baru Anda" autofocus required>
+                                    <input type="hidden" name="token" value="{{ $token }}">
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">submit</button>
                             </form>

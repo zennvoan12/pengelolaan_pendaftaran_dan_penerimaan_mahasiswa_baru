@@ -46,7 +46,7 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="{{ url('forgot-password')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label>Email Address</label>
@@ -54,6 +54,12 @@
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">submit</button>
                             </form>
+                            <div class="register-link">
+                                <p>
+                                    Tidak Jadi?
+                                    <a href="/login">Sign in Here!</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

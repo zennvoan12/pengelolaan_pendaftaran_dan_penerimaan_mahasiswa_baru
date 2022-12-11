@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember">Remember Me
+                                        <input type="hidden" name="remember">
                                     </label>
                                     <label>
                                         <a href="/forgot-password">Forgotten Password?</a>
