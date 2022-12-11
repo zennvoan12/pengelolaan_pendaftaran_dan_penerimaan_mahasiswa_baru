@@ -12,7 +12,7 @@
                     <form id="form" method="post" action="/dashboard/edit-form-registrasi" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                     @include('layouts.formLayout')   
+                     @include('layouts.formLayout')
                 </div>
                         <div class="modal-footer">
                                 <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>

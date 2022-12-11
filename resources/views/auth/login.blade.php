@@ -12,26 +12,27 @@
     <!-- Title Page-->
     <title>Login</title>
 
-     <!-- Fontfaces CSS-->
-     <link href="{{asset('css/font-face.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+    <!-- Fontfaces CSS-->
+    <link href="{{ asset('css/font-face.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="{{asset('vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="{{asset('vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/wow/animate.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/slick/slick.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet"
+        media="all">
+    <link href="{{ asset('vendor/wow/animate.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/slick/slick.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="{{asset('css/theme.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('css/theme.css') }}" rel="stylesheet" media="all">
 </head>
 
 <body class="animsition">
@@ -46,15 +47,17 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="/login" method="post">
+                            <form id="form-login" action="/login" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label>Username atau Email Address</label>
-                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Email">
+                                    <input class="au-input au-input--full" type="text" name="username"
+                                        placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    <input class="au-input au-input--full" type="password" name="password"
+                                        placeholder="Password">
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
@@ -64,9 +67,10 @@
                                         <a href="/forgetpass">Forgotten Password?</a>
                                     </label>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
-                                
-                            </form> 
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign
+                                    in</button>
+
+                            </form>
                             <div class="register-link">
                                 <p>
                                     Don't you have account?
@@ -81,30 +85,96 @@
 
     </div>
 
-   <!-- Jquery JS-->
-   <script src="{{asset('vendor/jquery-3.2.1.min.js')}}"></script>
+    <!-- Jquery JS-->
+    <script src="{{ asset('vendor/jquery-3.2.1.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap JS-->
-    <script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('vendor/bootstrap-4.1/popper.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
     <!-- Vendor JS       -->
-    <script src="{{asset('vendor/slick/slick.min.js')}}">
-    </script>
-    <script src="{{asset('vendor/wow/wow.min.js')}}"></script>
-    <script src="{{asset('vendor/animsition/animsition.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
-    </script>
-    <script src="{{asset('vendor/counter-up/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('vendor/counter-up/jquery.counterup.min.js')}}">
-    </script>
-    <script src="{{asset('vendor/circle-progress/circle-progress.min.js')}}"></script>
-    <script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('vendor/chartjs/Chart.bundle.min.js')}}"></script>
-    <script src="{{asset('vendor/select2/select2.min.js')}}">
-    </script>
+    <script src="{{ asset('vendor/slick/slick.min.js') }}"></script>
+    <script src="{{ asset('vendor/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('vendor/animsition/animsition.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+    <script src="{{ asset('vendor/counter-up/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('vendor/counter-up/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('vendor/circle-progress/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('vendor/chartjs/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
 
     <!-- Main JS-->
-    <script src="{{asset('js/dem.js')}}"></script>
-    <script src="{{asset('js/form.js')}} "></script>
+    <script src="{{ asset('js/dem.js') }}"></script>
+    <script src="{{ asset('js/form.js') }} "></script>
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+
+        })
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type') }}"
+            switch (type) {
+                case 'info':
+                    Toast.fire({
+                        type: 'info',
+                        title: "{{ Session::get('message') }}"
+                    })
+                    break;
+
+                case 'success':
+                    Toast.fire({
+                        type: 'success',
+                        title: "{{ Session::get('message') }}"
+                    })
+                    break;
+
+                case 'warning':
+                    toast.fire({
+                        type: 'warning',
+                        title: "{{ Session::get('message') }}"
+                    })
+                    break;
+
+                case 'error':
+                    toast.fire({
+                        type: 'error',
+
+                        title: "{{ Session::get('message') }}"
+                    })
+                    break;
+
+                case 'dialog_error':
+                    Toast.fire({
+                        type: 'error',
+                        title: 'Oppss',
+                        showCloseButton: true,
+                        text: "Terjadi Kesalahan",
+
+                    })
+                    break;
+
+            }
+        @endif
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                Swal.fire({
+                    type: 'error',
+                    title: "Oppss",
+                    icon: 'error',
+                    text: "{{ $error }}",
+
+                })
+            @endforeach
+        @endif
+
+        $("#form-login").DataTable();
+
+        let baseurl = "<?= url('/') ?>";
+        let fullURL = "<?= url()->full() ?>";
+    </script>
 
 </body>
 
