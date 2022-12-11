@@ -112,7 +112,7 @@ class DashboardController extends Controller
             'alert-type' => 'success'
         ];
 
-        return redirect()->route('dashboard')->with($notification);
+        return redirect()->back()->with($notification);
     }
 
     public function update(Request $request)
@@ -128,7 +128,7 @@ class DashboardController extends Controller
                 "kewarganegaraan" => "required",
                 "agama" => "required",
                 "nama_ibu" => "required",
-                "email_daftar" => "required|exists:users",
+                // "email_daftar" => "required|exists:users",
                 "no_telp" => "required",
                 "alamat" => "required",
                 "kode_pos" => "required|max:5",
@@ -236,14 +236,8 @@ class DashboardController extends Controller
             }
         }
 
-        // $status[] = $request->status;
-
-        // for($i= 0 ; $i<count($status);$i++){
-
-        //     }
-
         $notification = [
-            'message' => 'Data Anda telah Di Ubah',
+            'message' => 'Berhasil',
             'alert-type' => 'success'
         ];
         return redirect()->back()->with($notification);

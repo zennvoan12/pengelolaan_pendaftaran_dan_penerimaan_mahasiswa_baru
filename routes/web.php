@@ -5,7 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\ResetPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +25,13 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('/login', 'authenticate');  
     Route::post('/logout', 'logout')->middleware('auth');
-    Route::get('/forgetpass', 'forgetpass')->middleware('guest');
+});
+Route::controller(ResetPasswordController::class)->group(function () {
+    Route::get('/forgot-password', 'forgotPasswordForm')->middleware('guest')->name('password.request');
+    Route::post('/forgot-password', 'prosesForgot')->middleware('guest')->name('password.email');
+    Route::get('/reset-password/{token}', 'passwordReset')->middleware('guest')->name('password.reset');
+    Route::post('/reset-password', 'newPassword')->middleware('guest')->name('password.update');
+
 });
 
 Route::controller(RegisterController::class)->group(function (){

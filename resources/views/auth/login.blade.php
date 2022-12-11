@@ -61,10 +61,10 @@
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember">Remember Me
+                                        <input type="hidden" name="remember">
                                     </label>
                                     <label>
-                                        <a href="/forgetpass">Forgotten Password?</a>
+                                        <a href="/forgot-password">Forgotten Password?</a>
                                     </label>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign
