@@ -47,9 +47,10 @@
                         </div>
                         <div class="login-form">
                             <form action="" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <label>Password Baru</label>
+                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Masukan Email Anda" autofocus required>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">submit</button>
                             </form>
