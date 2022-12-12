@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-@can('admin')
 <div class="main-content bg-white">
     <div class="section__content section__content--p30">
         <div class="container-fluid bg-light">
@@ -11,19 +10,14 @@
                     </div>
                 </div>
             </div>
-            <br/>
-            <hr/>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="overview-wrap">
-                        <a href="/dashboard" class="btn btn-primary">Kembali</a>
-                    </div>
-                </div>
-            </div>
-            <hr/>     
-            @include('layouts.formLayout')         
+            <br/>     
+            @include('layouts.formLayout')
+            <hr/>         
         </div>
+                <div class="overview-wrap">
+                    <a href="/dashboard" class="btn btn-primary align-right">Kembali</a>
+                </div>
+        <hr/>
     </div>
 </div>
-@endcan
 @endsection
