@@ -6,6 +6,7 @@ use App\Models\Pendaftar;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Illuminate\Support\Facades\DB;
 
 class NilaiImport implements ToCollection, WithHeadingRow
 {
@@ -16,10 +17,17 @@ class NilaiImport implements ToCollection, WithHeadingRow
     */
     public function collection(Collection $rows)
     {
+        $models = DB::table('pendaftars')
+        //->join('users','temp.username','=','users.username')
+        ->get();
         foreach ($rows as $row) {
-            $detail = Pendaftar::find($row['no_reg']);
-            $detail->nilai_ujian = $row['nilai_ujian'];
-            $detail->save();
+            // $detail = Pendaftar::find($row['no_reg']);
+            // $detail->nilai_ujian = $row['nilai_ujian'];
+            // $detail->update();
+            $nilai = $row['nilai_ujian'];
+            $id = $row['no_reg'];
+            DB::table('pendaftars')->where('no_reg', '=', $id)->update(
+                ['nilai_ujian' => $nilai]);
         }
     }
 }

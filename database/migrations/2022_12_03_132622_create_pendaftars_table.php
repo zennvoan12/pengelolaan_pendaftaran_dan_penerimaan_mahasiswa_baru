@@ -29,9 +29,9 @@ class CreatePendaftarsTable extends Migration
             $table->char('kode_pos', 5);
             $table->char('pendidikan', 3);
             $table->string('asal_sekolah', 100);
-            $table->char('nilai_indonesia', 50);
-            $table->char('nilai_inggris', 50);
-            $table->char('nilai_mtk', 50);
+            $table->string('nilai_indonesia', 15);
+            $table->string('nilai_inggris', 15);
+            $table->string('nilai_mtk', 15);
             $table->bigInteger('jurusan_id')->unsigned();
             $table->char('gelombang_id');
             $table->bigInteger('user_id')->unsigned();
