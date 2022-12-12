@@ -14,7 +14,7 @@ class AddFieldNilaiTotalPendaftars extends Migration
     public function up()
     {
         Schema::table('pendaftars', function (Blueprint $table) {
-            $table->double('nilai_ujian', 5)->default('0')->nullable();
+            $table->integer('nilai_ujian')->default('0');
         });
     }
 
@@ -26,7 +26,7 @@ class AddFieldNilaiTotalPendaftars extends Migration
     public function down()
     {
         Schema::table('pendaftars', function (Blueprint $table) {
-            //
+            
         });
     }
 }

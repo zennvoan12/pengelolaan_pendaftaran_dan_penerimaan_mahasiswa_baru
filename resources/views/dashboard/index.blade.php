@@ -119,15 +119,15 @@
                 </div>
             </div>
             <hr/>
-            <div class="row">
-                <div class="col-md-12">
                     <div class="overview-wrap">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" data-toggle="modal" data-target="#importDataModal" class="btn btn-secondary"><i class="fa fa-file-excel"></i> Import Nilai Ujian Dari File Excel</button>
+                            <form action="/admin/fungsi-seleksi" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-warning"><i class="fa fa-warehouse"></i> Jalankan Fungsi Seleksi Otomatis</button>
+                            </form>
                         </div>
                     </div>
-                </div>
-            </div>
             <hr/>
             <div class="table-responsive">
                 <table class="table table-hover bg-white" id="myTable">
@@ -144,27 +144,29 @@
                             <td>{{$item->nama}}</td>
                             <td>
                                 @php
-                                    $indonesia = $item->nilai_indonesia;
-                                    $nilaiIndonesia = explode("," , $indonesia);
-                                    $total_indonesia = array_sum($nilaiIndonesia);
-
-                                    $inggris = $item->nilai_inggris;
-                                    $nilaiinggris = explode("," , $inggris);
-                                    $total_inggris = array_sum($nilaiinggris);
-
-                                    $mtk = $item->nilai_mtk;
-                                    $nilaimtk = explode("," , $mtk);
-                                    $total_mtk = array_sum($nilaimtk);
-
-                                    $total_nilai = $total_mtk + $total_indonesia + $total_inggris;
+                                    $ujian = $item->nilai_ujian;
+            $indonesia = $item->nilai_indonesia;
+            $nilaiIndonesia = explode("," , $indonesia);
+            $total_indonesia = array_sum($nilaiIndonesia);
+            $inggris = $item->nilai_inggris;
+            $nilaiinggris = explode("," , $inggris);
+            $total_inggris = array_sum($nilaiinggris);
+            $mtk = $item->nilai_mtk;
+            $nilaimtk = explode("," , $mtk);
+            $total_mtk = array_sum($nilaimtk);
+            $total_nilai = [$total_mtk, $total_indonesia , $total_inggris , $ujian];
+            $patokan = array_sum($total_nilai);
 
                                 @endphp
-                                {{$total_nilai}}
+                                {{$patokan}}
                             </td>
                             <td>
                                 <a href="/dashboard/lihat/{{$item->no_reg}}" class="btn btn-success">Lihat</a>
-                                @if ($item->can_update == true)
-                                <button class="btn btn-primary">Edit</button>
+                                @if ($item->lulus == 1)
+                                <button class="btn btn-success">Lulus</button>
+                                @endif
+                                @if ($item->lulus == 0)
+                                <button class="btn btn-danger">Tidak</button>
                                 @endif
                             </td>    
                         </tr>    

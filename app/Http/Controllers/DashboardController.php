@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Jurusan;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendaftarExport;
+use App\Imports\NilaiImport;
 class DashboardController extends Controller
 {
     public function index()
@@ -215,7 +216,7 @@ class DashboardController extends Controller
         $pendaftar = Pendaftar::find($id)->first();
         $jurusan = Jurusan::all();
         $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
-        return view ('dashboard.showPendaftar', compact ('pendaftar', 'pilihanJurusan'));
+        return view ('dashboard.showPendaftar', compact ('pendaftar', 'pilihanJurusan', 'jurusan'));
     }
 
     public function nonaktif(Request $request)
@@ -246,6 +247,43 @@ class DashboardController extends Controller
     public function export()
     {
         return Excel::download(new PendaftarExport, 'pendaftar_yang_lulus.xlsx');
+    }
+    public function import(Request $request)
+    {
+        Excel::import(new NilaiImport, $request->file('file'));
+
+        return redirect()->back();
+    }
+
+    public function seleksi()
+    {
+        $pendaftar = Pendaftar::All();
+        foreach ($pendaftar as $item) {
+            $ujian = $item->nilai_ujian;
+            $indonesia = $item->nilai_indonesia;
+            $nilaiIndonesia = explode("," , $indonesia);
+            $total_indonesia = array_sum($nilaiIndonesia);
+            $inggris = $item->nilai_inggris;
+            $nilaiinggris = explode("," , $inggris);
+            $total_inggris = array_sum($nilaiinggris);
+            $mtk = $item->nilai_mtk;
+            $nilaimtk = explode("," , $mtk);
+            $total_mtk = array_sum($nilaimtk);
+            $total_nilai = [$total_mtk, $total_indonesia , $total_inggris , $ujian];
+            $patokan = array_sum($total_nilai);
+            if ($patokan >= 800) {
+                $datasave = [
+                    'lulus' => 1,
+                ];
+                DB::table('pendaftars')->update($datasave);
+            } else if ($patokan < 800){
+                $datasave = [
+                    'lulus' => 0,
+                ];
+                DB::table('pendaftars')->update($datasave);
+            }
+        }
+        return redirect()->back();
     }
 
 }
