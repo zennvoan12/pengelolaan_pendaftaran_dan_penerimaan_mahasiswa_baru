@@ -17,9 +17,6 @@ class NilaiImport implements ToCollection, WithHeadingRow
     */
     public function collection(Collection $rows)
     {
-        $models = DB::table('pendaftars')
-        //->join('users','temp.username','=','users.username')
-        ->get();
         foreach ($rows as $row) {
             // $detail = Pendaftar::find($row['no_reg']);
             // $detail->nilai_ujian = $row['nilai_ujian'];

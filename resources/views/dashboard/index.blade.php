@@ -122,15 +122,15 @@
                     <div class="overview-wrap">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" data-toggle="modal" data-target="#importDataModal" class="btn btn-secondary"><i class="fa fa-file-excel"></i> Import Nilai Ujian Dari File Excel</button>
-                            <form action="/admin/fungsi-seleksi" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-warning"><i class="fa fa-warehouse"></i> Jalankan Fungsi Seleksi Otomatis</button>
-                            </form>
                         </div>
                     </div>
             <hr/>
             <div class="table-responsive">
-                <table class="table table-hover bg-white" id="myTable">
+                <form action="/admin/fungsi-seleksi" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-warning"><i class="fa fa-warehouse"></i> Jalankan Fungsi Seleksi Otomatis</button>
+                <hr/>
+                    <table class="table table-hover bg-white" id="myTable">
                     <thead>
                         <th>No Registrasi</th>
                         <th>Nama</th>  
@@ -141,24 +141,25 @@
                         @forelse ($calonMhs as $item)
                         <tr>
                             <td>{{$item->no_reg}}</td>
+                            <input type="hidden" value="{{$item->no_reg}}" name="id[]">
                             <td>{{$item->nama}}</td>
                             <td>
                                 @php
                                     $ujian = $item->nilai_ujian;
-            $indonesia = $item->nilai_indonesia;
-            $nilaiIndonesia = explode("," , $indonesia);
-            $total_indonesia = array_sum($nilaiIndonesia);
-            $inggris = $item->nilai_inggris;
-            $nilaiinggris = explode("," , $inggris);
-            $total_inggris = array_sum($nilaiinggris);
-            $mtk = $item->nilai_mtk;
-            $nilaimtk = explode("," , $mtk);
-            $total_mtk = array_sum($nilaimtk);
-            $total_nilai = [$total_mtk, $total_indonesia , $total_inggris , $ujian];
-            $patokan = array_sum($total_nilai);
-
+                                    $indonesia = $item->nilai_indonesia;
+                                    $nilaiIndonesia = explode("," , $indonesia);
+                                    $total_indonesia = array_sum($nilaiIndonesia);
+                                    $inggris = $item->nilai_inggris;
+                                    $nilaiinggris = explode("," , $inggris);
+                                    $total_inggris = array_sum($nilaiinggris);
+                                    $mtk = $item->nilai_mtk;
+                                    $nilaimtk = explode("," , $mtk);
+                                    $total_mtk = array_sum($nilaimtk);
+                                    $ujian = $item->nilai_ujian;
+                                    $total_nilai = $total_mtk + $total_indonesia + $total_inggris + $ujian; 
                                 @endphp
-                                {{$patokan}}
+                                <input type="hidden" name="nilai[]" value="{{$total_nilai}}" id="">
+                                {{$total_nilai}}
                             </td>
                             <td>
                                 <a href="/dashboard/lihat/{{$item->no_reg}}" class="btn btn-success">Lihat</a>
@@ -174,7 +175,8 @@
                             <h1>Belum ada Pendaftar</h1>
                         @endforelse
                     </tbody>    
-                </table>   
+                </table>  
+            </form> 
             </div> 
             {{-- <div class="row">
                 <div class="col-md-12">

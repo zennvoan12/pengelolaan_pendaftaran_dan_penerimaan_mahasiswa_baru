@@ -11,6 +11,7 @@ use App\Models\Jurusan;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendaftarExport;
 use App\Imports\NilaiImport;
+use Illuminate\Support\Collection;
 class DashboardController extends Controller
 {
     public function index()
@@ -255,10 +256,11 @@ class DashboardController extends Controller
         return redirect()->back();
     }
 
-    public function seleksi()
+    public function seleksi(Request $request, Collection $rows)
     {
-        $pendaftar = Pendaftar::All();
+        $pendaftar = Pendaftar::get();
         foreach ($pendaftar as $item) {
+            $id = $item->no_reg;
             $ujian = $item->nilai_ujian;
             $indonesia = $item->nilai_indonesia;
             $nilaiIndonesia = explode("," , $indonesia);
@@ -275,15 +277,30 @@ class DashboardController extends Controller
                 $datasave = [
                     'lulus' => 1,
                 ];
-                DB::table('pendaftars')->update($datasave);
-            } else if ($patokan < 800){
+                DB::table('pendaftars')->where('no_reg', '=', $id)->update($datasave);
+            } else{
                 $datasave = [
                     'lulus' => 0,
                 ];
-                DB::table('pendaftars')->update($datasave);
+                DB::table('pendaftars')->where('no_reg', '=', $id)->update($datasave);
             }
         }
         return redirect()->back();
+        // $id = $request->id;
+        // for($i = 0; $i<count($id); $i++){
+        //     $datasave = [
+        //         'total_nilai' => $request['nilai'][$i]
+        //     ];
+        //     DB::table('pendaftars')->where('no_reg', '=', $id[$i])->update($datasave);
+        // }
+        // $pendaftar = Pendaftar::get();
+        // foreach ($pendaftar as $value)
+        // {
+        //     DB::table('pendaftars')->where('total_nilai', '>', '899')->update([
+        //         'lulus' => 1
+        //     ]);
+        // }
+        // return redirect()->back();
     }
 
 }
