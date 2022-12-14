@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldTotalNilaiPendaftars extends Migration
+class CreateSoalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddFieldTotalNilaiPendaftars extends Migration
      */
     public function up()
     {
-        Schema::table('pendaftars', function (Blueprint $table) {
-            $table->char('total_nilai', 3)->default(0);
+        Schema::create('soals', function (Blueprint $table) {
+            $table->id();
+            $table->string('jawaban_benar');
+            $table->string('pilihan_jawaban');
+            $table->string('soal');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddFieldTotalNilaiPendaftars extends Migration
      */
     public function down()
     {
-        Schema::table('pendaftars', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('soals');
     }
 }
