@@ -53,16 +53,16 @@
             </div> 
             @endif  
             <hr/>
-            @if ($pendaftar->nilai_ujian === null)
+            @if ($pendaftar == true && $pendaftar->nilai_ujian === null)
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
-                        <a href="/dashboard/soal/{{$pendaftar->no_reg}}" class="au-btn au-btn-icon au-btn--blue">
+                        <a href="/dashboard/soal/{{Crypt::encryptString($pendaftar->no_reg)}}" class="au-btn au-btn-icon au-btn--blue">
                         <i class="zmdi zmdi-plus"></i>Jawab Soal Ujian</a>            
                     </div>
                 </div>
             </div>
-            @else
+            @elseif($pendaftar == true && $pendaftar->nilai_ujian >= null)
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
@@ -70,6 +70,7 @@
                     </div>
                 </div>
             </div>
+            <hr/>
             @endif
             {{-- <div class="row">
                 <div class="col-md-12">

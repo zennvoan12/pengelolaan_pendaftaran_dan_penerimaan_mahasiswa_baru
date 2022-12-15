@@ -42,6 +42,7 @@ Route::controller(RegisterController::class)->group(function (){
 
 Route::controller(DashboardController::class)->middleware('auth')->group(function (){
     Route::get('/dashboard', 'index');
+    Route::get('/dashboard/pendaftar', 'pendaftar')->name('admin.pendaftar')->middleware('admin');
     Route::post('/dashboard/input-form-registrasi', 'create');
     Route::put('/dashboard/edit-form-registrasi', 'update');
     Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show')->middleware('admin');
