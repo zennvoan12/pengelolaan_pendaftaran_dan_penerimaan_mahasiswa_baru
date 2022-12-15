@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\SoalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,4 +49,9 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::get('/dashboard/pendaftar/export', 'export')->name('export.excel')->middleware('admin');
     Route::post('/admin/nilai/import', 'import')->middleware('admin');
     Route::post('/admin/fungsi-seleksi', 'seleksi')->middleware('admin');
+});
+Route::controller(SoalController::class)->group(function (){
+    Route::post('/admin/soal/import', 'import')->middleware('admin');
+    Route::get('/dashboard/soal/{no_reg}', 'show')->middleware('pendaftar')->middleware('soal')->middleware('revalidate');
+    Route::post('/dashboard/soal', 'submit')->name('soal.submit')->middleware('pendaftar');
 });

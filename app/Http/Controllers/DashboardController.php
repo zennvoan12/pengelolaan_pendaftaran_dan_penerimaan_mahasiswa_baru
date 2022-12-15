@@ -11,7 +11,7 @@ use App\Models\Jurusan;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendaftarExport;
 use App\Imports\NilaiImport;
-use Illuminate\Support\Collection;
+use App\Imports\SoalImport;
 class DashboardController extends Controller
 {
     public function index()
@@ -256,7 +256,7 @@ class DashboardController extends Controller
         return redirect()->back();
     }
 
-    public function seleksi(Request $request, Collection $rows)
+    public function seleksi(Request $request)
     {
         $pendaftar = Pendaftar::get();
         foreach ($pendaftar as $item) {

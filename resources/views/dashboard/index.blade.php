@@ -27,13 +27,15 @@
                 <table class="table table-hover bg-white">
                     <thead>
                         <th>No Registrasi</th>
-                        <th>Nama</th>  
+                        <th>Nama</th> 
+                        <th>Nilai Ujian</th> 
                         <th>Aksi</th>  
                     </thead>
                     <tbody>
                         <tr>
                             <td>{{$pendaftar->no_reg}}</td>
                             <td>{{$pendaftar->nama}}</td>
+                            <td>{{$pendaftar->nilai_ujian}}</td>
                             @if ($pendaftar->can_update == true)
                             <td>
                                 <button type="button" id="btn-edit-registrasi" class="btn btn-warning sm" data-toggle="modal"
@@ -50,6 +52,25 @@
                 </table>   
             </div> 
             @endif  
+            <hr/>
+            @if ($pendaftar->nilai_ujian === null)
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <a href="/dashboard/soal/{{$pendaftar->no_reg}}" class="au-btn au-btn-icon au-btn--blue">
+                        <i class="zmdi zmdi-plus"></i>Jawab Soal Ujian</a>            
+                    </div>
+                </div>
+            </div>
+            @else
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">Anda Telah Mengerjakan Soal Ujian</h2>
+                    </div>
+                </div>
+            </div>
+            @endif
             {{-- <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
@@ -121,7 +142,8 @@
             <hr/>
                     <div class="overview-wrap">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" data-toggle="modal" data-target="#importDataModal" class="btn btn-secondary"><i class="fa fa-file-excel"></i> Import Nilai Ujian Dari File Excel</button>
+                            <button type="button" data-toggle="modal" data-target="#importNilaiModal" class="btn btn-secondary"><i class="fa fa-file-excel"></i> Import Nilai Ujian Dari File Excel</button>
+                            <button type="button" data-toggle="modal" data-target="#importSoalModal" class="btn btn-primary"><i class="fa fa-file-excel"></i> Import Soal Dari File Excel</button>
                         </div>
                     </div>
             <hr/>
@@ -188,30 +210,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="importDataModal" tabindex="-1" aria-labelledby="exampleModalLable" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Import Data Nilai</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    <div class="modal-body">
-        <form action="/admin/nilai/import" enctype="multipart/form-data" method="post">
-        @csrf
-        <div class="form-group">
-            <label for="cover">Upload File</label>
-            <input type="file" class="form-control" name="file"/>
-        </div>
-    </div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-    <button type="submit" class="btn btn-primary">Import Data</button>
-</form>
-</div>
-</div>
-</div>
-</div>
+@include('dashboard.modalImportNilai')
+@include('dashboard.modalImportSoal')
 @endcan
 @endsection

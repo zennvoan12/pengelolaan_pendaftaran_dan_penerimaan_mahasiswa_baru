@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldNilaiTotalPendaftars extends Migration
+class AddFieldNilaiUjianPendaftars extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddFieldNilaiTotalPendaftars extends Migration
     public function up()
     {
         Schema::table('pendaftars', function (Blueprint $table) {
-            $table->integer('nilai_ujian')->default('0');
+            $table->integer('nilai_ujian')->nullable();
         });
     }
 
