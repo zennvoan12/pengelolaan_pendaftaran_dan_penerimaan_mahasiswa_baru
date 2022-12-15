@@ -11,6 +11,20 @@
                     <a class="js-arrow" href="/dashboard">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
+                @can('admin')
+                <li>
+                    <a class="js-arrow" href="/dashboard/pendaftar">
+                        <i class="fas fa-tachometer-alt"></i>Pendaftar</a>
+                </li>
+                <li>
+                    <a class="js-arrow" href="/dashboard/soal">
+                        <i class="fas fa-tachometer-alt"></i>Soal Ujian</a>
+                </li>
+                <li>
+                    <a class="js-arrow" href="/dashboard/seleksi">
+                        <i class="fas fa-tachometer-alt"></i>Seleksi</a>
+                </li>
+                @endcan
             </ul>
         </nav>
     </div>

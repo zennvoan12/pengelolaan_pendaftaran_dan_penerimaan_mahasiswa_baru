@@ -36,7 +36,7 @@
                             <td>{{$pendaftar->no_reg}}</td>
                             <td>{{$pendaftar->nama}}</td>
                             <td>{{$pendaftar->nilai_ujian}}</td>
-                            @if ($pendaftar->can_update == true)
+                            @if ($pendaftar->can_update === true)
                             <td>
                                 <button type="button" id="btn-edit-registrasi" class="btn btn-warning sm" data-toggle="modal"
                                 data-target="#formEditRegistrasiModal" onclick="enable()" data-id="{{$pendaftar->no_reg}}">Edit</button>      
@@ -53,7 +53,7 @@
             </div> 
             @endif  
             <hr/>
-            @if ($pendaftar->nilai_ujian === null)
+            @if ($pendaftar == true && $pendaftar->nilai_ujian === null)
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            @else
+            @elseif($pendaftar == true && $pendaftar->nilai_ujian >= null)
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
@@ -70,6 +70,7 @@
                     </div>
                 </div>
             </div>
+            <hr/>
             @endif
             {{-- <div class="row">
                 <div class="col-md-12">
