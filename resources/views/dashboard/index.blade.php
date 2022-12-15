@@ -36,7 +36,7 @@
                             <td>{{$pendaftar->no_reg}}</td>
                             <td>{{$pendaftar->nama}}</td>
                             <td>{{$pendaftar->nilai_ujian}}</td>
-                            @if ($pendaftar->can_update === true)
+                            @if ($pendaftar->can_update == true)
                             <td>
                                 <button type="button" id="btn-edit-registrasi" class="btn btn-warning sm" data-toggle="modal"
                                 data-target="#formEditRegistrasiModal" onclick="enable()" data-id="{{$pendaftar->no_reg}}">Edit</button>      
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
-                        <a href="/dashboard/soal/{{$pendaftar->no_reg}}" class="au-btn au-btn-icon au-btn--blue">
+                        <a href="/dashboard/soal/{{Crypt::encryptString($pendaftar->no_reg)}}" class="au-btn au-btn-icon au-btn--blue">
                         <i class="zmdi zmdi-plus"></i>Jawab Soal Ujian</a>            
                     </div>
                 </div>
