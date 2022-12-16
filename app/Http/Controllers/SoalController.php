@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Crypt;
 
 class SoalController extends Controller
 {
+    public function index()
+    {
+        $soal = Soal::first();
+        return view('soal.index', compact('soal'));
+    }
+    public function tinjau()
+    {
+        $soal = Soal::get();
+        return view('soal.tinjau', compact('soal'));
+    }
     public function import(Request $request)
     {
         Excel::import(new SoalImport, $request->file('file'));
@@ -25,7 +35,7 @@ class SoalController extends Controller
         $id = Crypt::decryptString($id);
         $pendaftar = Pendaftar::find($id)->first();
         $soal = Soal::inRandomOrder()->get();
-        return view ('soal.index', compact ('pendaftar', 'soal'));
+        return view ('soal.show', compact ('pendaftar', 'soal'));
     }
     public function submit(Request $request)
     {

@@ -13,9 +13,10 @@
                 </div>
                 <hr />
                 <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Kembali</a>
+                <hr/>
                 {{-- javascript:history.back() --}}
                 <div class="table-responsive-sm">
-                    <table class="table table-hover bg-white">
+                    <table class="table table-hover bg-white" id="myTable">
                         <thead>
                             <th>No</th>
                             <th>No Registrasi</th>
