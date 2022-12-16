@@ -36,6 +36,7 @@ class LoginController extends Controller
         }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
+            'password' => 'Password Salah'
         ])->with($notification2);
     }
     public function logout(Request $request)

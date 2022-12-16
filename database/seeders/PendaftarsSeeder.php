@@ -57,6 +57,7 @@ class PendaftarsSeeder extends Seeder
                                 'nilai_inggris' => $inggris,
                                 'nilai_mtk' => $mtk,
                                 'jurusan_id' => $jurusan->id,
+                                'fakultas_kode' => $jurusan->fakultas_kode,
                                 'user_id' => $id,
                                 'gelombang_id' => 1
                             ]);

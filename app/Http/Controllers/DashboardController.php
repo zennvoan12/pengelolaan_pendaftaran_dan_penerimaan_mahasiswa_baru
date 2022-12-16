@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $role = Auth::user()->role_id;
         $calonMhs = Pendaftar::all();
         $pendaftar = Pendaftar::where('user_id', $id)->first();
-        $jurusan = Jurusan::all();
+        $jurusan = Jurusan::get();
         if ($role == 2 && empty($pendaftar) == false) {
             $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
             return view('dashboard.index', compact('pendaftar', 'id', 'calonMhs', 'jurusan', 'pilihanJurusan'));
@@ -62,7 +62,8 @@ class DashboardController extends Controller
         $mtk = implode(",", $request['mtk']);
         $user = $request->user_id;
         $nama = $request->nama;
-
+        $jurusan = $request->jurusan;
+        $kode = Jurusan::find($jurusan)->first();
 
         $pendaftar->no_reg = rand(0000000000, 9999999999);
         $pendaftar->nama = $nama;
@@ -82,7 +83,8 @@ class DashboardController extends Controller
         $pendaftar->nilai_indonesia = $indonesia;
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
-        $pendaftar->jurusan_id = $request->jurusan;
+        $pendaftar->jurusan_id = $jurusan;
+        $pendaftar->fakultas_kode = $kode->fakultas_kode;
         $pendaftar->user_id = $user;
         $pendaftar->gelombang_id = 1;
 
@@ -113,7 +115,6 @@ class DashboardController extends Controller
             'message' => 'Anda Berhasil Terdaftar',
             'alert-type' => 'success'
         ];
-
         return redirect()->back()->with($notification);
     }
 
@@ -155,6 +156,8 @@ class DashboardController extends Controller
         $mtk = implode(",", $request['mtk']);
         $user = $request->user_id;
         $nama = $request->nama;
+        $jurusan = $request->jurusan;
+        $kode = Jurusan::find($jurusan)->first();
 
         $pendaftar->nama = $nama;
         $pendaftar->nik = $request->nik;
@@ -173,7 +176,8 @@ class DashboardController extends Controller
         $pendaftar->nilai_indonesia = $indonesia;
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
-        $pendaftar->jurusan_id = $request->jurusan;
+        $pendaftar->jurusan_id = $jurusan;
+        $pendaftar->fakultas_kode = $kode->fakultas_kode;
         $pendaftar->user_id = $user;
 
         if ($request->hasFile('foto')) {
@@ -301,6 +305,11 @@ class DashboardController extends Controller
         //     ]);
         // }
         // return redirect()->back();
+    }
+
+    public function pendaftar()
+    {
+        return view('dashboard.pendaftar');
     }
 
 }

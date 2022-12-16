@@ -225,7 +225,7 @@
                                 <select class="form-control" name="jurusan">
                                     <option value="">--> Pilih Program Studi Yang Akan Diambil <-- </option>
                                             @foreach ($jurusan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
+                                    <option value="{{$item->id}}">{{ $item->nama_jurusan}}</option>
                                     @endforeach
                                 </select>
                             </div>

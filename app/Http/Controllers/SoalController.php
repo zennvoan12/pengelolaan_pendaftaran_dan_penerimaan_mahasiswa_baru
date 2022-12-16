@@ -8,6 +8,9 @@ use App\Models\Soal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
+
 
 class SoalController extends Controller
 {
@@ -19,6 +22,7 @@ class SoalController extends Controller
     }
     public function show($id)
     {
+        $id = Crypt::decryptString($id);
         $pendaftar = Pendaftar::find($id)->first();
         $soal = Soal::inRandomOrder()->get();
         return view ('soal.index', compact ('pendaftar', 'soal'));
