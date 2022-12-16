@@ -28,12 +28,13 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/login', 'authenticate');  
     Route::post('/logout', 'logout')->middleware('auth');
 });
-Route::controller(ResetPasswordController::class)->group(function () {
-    Route::get('/forgot-password', 'forgotPasswordForm')->middleware('guest')->name('password.request');
-    Route::post('/forgot-password', 'prosesForgot')->middleware('guest')->name('password.email');
-    Route::get('/reset-password/{token}', 'passwordReset')->middleware('guest')->name('password.reset');
-    Route::post('/reset-password', 'newPassword')->middleware('guest')->name('password.update');
-
+Route::middleware(['guest'])->group(function () {
+    Route::controller(ResetPasswordController::class)->group(function () {
+        Route::get('/forgot-password', 'forgotPasswordForm')->name('password.request');
+        Route::post('/forgot-password', 'prosesForgot')->name('password.email');
+        Route::get('/reset-password/{token}', 'passwordReset')->name('password.reset');
+        Route::post('/reset-password', 'newPassword')->name('password.update');
+    });
 });
 
 Route::controller(RegisterController::class)->group(function (){
@@ -51,11 +52,15 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::post('/admin/nilai/import', 'import')->middleware('admin');
     Route::post('/admin/fungsi-seleksi', 'seleksi')->middleware('admin');
 });
+
 Route::controller(SoalController::class)->group(function (){
     Route::post('/admin/soal/import', 'import')->middleware('admin');
+    Route::get('/dashboard/soal/', 'index')->middleware('admin');
+    Route::get('/dashboard/soal/tinjau', 'tinjau')->middleware('admin');
     Route::get('/dashboard/soal/{no_reg}', 'show')->middleware(['pendaftar','soal','revalidate']);
     Route::post('/dashboard/soal', 'submit')->name('soal.submit')->middleware('pendaftar');
 });
+
 Route::middleware(['admin'])->group(function () {
     Route::controller(FakultasController::class)->group(function (){
         Route::get('/dashboard/fakultas', 'index')->name('admin.fakultas');

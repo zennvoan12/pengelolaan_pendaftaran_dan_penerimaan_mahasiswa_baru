@@ -46,6 +46,11 @@
                             @empty
                                 <h1>Belum Menambahkan Data Fakultas</h1>
                             @endforelse
+                            <tr>
+                                <td><strong>Jumlah</strong></td>
+                                <td>:</td>
+                                <td><strong>{{count($pendaftar)}}</strong></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
