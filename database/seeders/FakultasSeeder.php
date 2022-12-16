@@ -21,7 +21,7 @@ class FakultasSeeder extends Seeder
             ],
             [
                 'kode_fakultas' => 'FEBI',
-                'nama_fakultas' => 'Fakultas Ekonomi Bisnis Isla'
+                'nama_fakultas' => 'Fakultas Ekonomi Bisnis Islam'
             ],
             [
                 'kode_fakultas' => 'FASTER',

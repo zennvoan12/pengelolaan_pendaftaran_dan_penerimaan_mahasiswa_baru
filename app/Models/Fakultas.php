@@ -9,5 +9,14 @@ class Fakultas extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'kode_fakultas' ;
+    protected $primaryKey = 'kode_fakultas';
+    protected $keyType = 'string';
+    public function jurusan()
+    {
+        return $this->hasMany(Jurusan::class, 'fakultas_kode', 'kode_fakultas');
+    }
+    public function pendaftar()
+    {
+        return $this->hasMany(Pendaftar::class, 'fakultas_kode', 'kode_fakultas');
+    }
 }

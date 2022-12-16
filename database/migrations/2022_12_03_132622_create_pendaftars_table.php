@@ -32,7 +32,7 @@ class CreatePendaftarsTable extends Migration
             $table->string('nilai_indonesia', 15);
             $table->string('nilai_inggris', 15);
             $table->string('nilai_mtk', 15);
-            $table->bigInteger('jurusan_id')->unsigned();
+            $table->char('jurusan_kode', 15);
             $table->char('gelombang_id');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
@@ -42,7 +42,7 @@ class CreatePendaftarsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreign('jurusan_id')->references('id')->on('jurusans')
+            $table->foreign('jurusan_kode')->references('kode_jurusan')->on('jurusans')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->foreign('gelombang_id')->references('id_gelombang')->on('gelombangs')

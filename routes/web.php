@@ -7,6 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SoalController;
+use App\Http\Controllers\FakultasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +43,6 @@ Route::controller(RegisterController::class)->group(function (){
 
 Route::controller(DashboardController::class)->middleware('auth')->group(function (){
     Route::get('/dashboard', 'index');
-    Route::get('/dashboard/pendaftar', 'pendaftar')->name('admin.pendaftar')->middleware('admin');
     Route::post('/dashboard/input-form-registrasi', 'create');
     Route::put('/dashboard/edit-form-registrasi', 'update');
     Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show')->middleware('admin');
@@ -53,6 +53,14 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
 });
 Route::controller(SoalController::class)->group(function (){
     Route::post('/admin/soal/import', 'import')->middleware('admin');
-    Route::get('/dashboard/soal/{no_reg}', 'show')->middleware('pendaftar')->middleware('soal')->middleware('revalidate');
+    Route::get('/dashboard/soal/{no_reg}', 'show')->middleware(['pendaftar','soal','revalidate']);
     Route::post('/dashboard/soal', 'submit')->name('soal.submit')->middleware('pendaftar');
 });
+Route::middleware(['admin'])->group(function () {
+    Route::controller(FakultasController::class)->group(function (){
+        Route::get('/dashboard/fakultas', 'index')->name('admin.fakultas');
+        Route::get('/dashboard/fakultas/{kode_fakultas}', 'show');
+        Route::get('/dashboard/fakultas/{kode_fakultas}/{kode_jurusan}', 'pendaftar');
+    });
+});
+

@@ -14,7 +14,7 @@ class AddFieldFakultasIdPendaftarsTable extends Migration
     public function up()
     {
         Schema::table('pendaftars', function (Blueprint $table) {
-            $table->char('fakultas_kode', 10)->after('jurusan_id');
+            $table->char('fakultas_kode', 10)->after('jurusan_kode');
             $table->foreign('fakultas_kode')->references('kode_fakultas')->on('fakultas')
             ->onDelete('cascade')
             ->onUpdate('cascade');
