@@ -13,8 +13,9 @@
                 </div>
                 <hr/>
                 <a href="/dashboard/fakultas" class="btn btn-primary mb-2">Kembali</a>
+                <hr/>
                 <div class="table-responsive-sm">
-                    <table class="table table-hover bg-white">
+                    <table class="table table-hover bg-white" id="myTable">
                         <thead>
                             <th>Kode Jurusan</th>
                             <th>Nama Jurusan</th>
