@@ -13,8 +13,8 @@
                 </li>
                 @can('admin')
                 <li>
-                    <a class="js-arrow" href="/dashboard/pendaftar">
-                        <i class="fas fa-tachometer-alt"></i>Pendaftar</a>
+                    <a class="js-arrow" href="/dashboard/fakultas">
+                        <i class="fas fa-tachometer-alt"></i>Fakultas</a>
                 </li>
                 <li>
                     <a class="js-arrow" href="/dashboard/soal">

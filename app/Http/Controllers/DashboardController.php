@@ -307,9 +307,4 @@ class DashboardController extends Controller
         // return redirect()->back();
     }
 
-    public function pendaftar()
-    {
-        return view('dashboard.pendaftar');
-    }
-
 }

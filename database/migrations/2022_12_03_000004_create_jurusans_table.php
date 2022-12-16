@@ -14,11 +14,11 @@ class CreateJurusansTable extends Migration
     public function up()
     {
         Schema::create('jurusans', function (Blueprint $table) {
-            $table->id();
             $table->char('kode_jurusan', 15);
             $table->string('nama_jurusan', 50);
             $table->char('fakultas_kode', 10);
             $table->timestamps();
+            $table->primary('kode_jurusan');
 
             $table->foreign('fakultas_kode')->references('kode_fakultas')->on('fakultas')
             ->onDelete('cascade')
