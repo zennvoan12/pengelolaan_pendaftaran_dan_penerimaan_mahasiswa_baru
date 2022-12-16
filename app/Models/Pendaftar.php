@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Jurusan;
-use App\Models\Gelombang;
 
 class Pendaftar extends Model
 {
@@ -15,9 +13,13 @@ class Pendaftar extends Model
 
     protected $guarded = [];
 
-    public function jurusans()
+    public function jurusan()
     {
-        return $this->belongsTo(Jurusan::class, 'jurusan_id');
+        return $this->belongsTo(Jurusan::class, 'jurusan_kode', 'kode_jurusan');
+    }
+    public function fakultas()
+    {
+        return $this->belongsTo(Fakultas::class, 'fakultas_kode', 'kode_fakultas');
     }
 
     public static function getDataPendaftar()
@@ -37,26 +39,4 @@ class Pendaftar extends Model
         return $pendaftar_filter;
 
     }
-    // protected $fillable = [
-        // 'no_reg',
-        // 'nama',
-        // 'nik',
-        // 'tempat_lahir',
-        // 'tanggal_lahir',
-        // 'jenis_kelamin',
-        // 'kewarganegaraan',
-        // 'agama',
-        // 'nama_ibu',
-        // 'email_daftar',
-        // 'no_telp',
-        // 'alamat',
-        // 'kode_pos',
-        // 'pendidikan',
-        // 'asal_sekolah',
-        // 'nilai_indonesia',
-        // 'nilai_inggris',
-        // 'nilai_mtk',
-        // 'pilihan_prodi',
-        // 'user_id',
-    // ];
 }
