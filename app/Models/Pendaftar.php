@@ -27,7 +27,7 @@ class Pendaftar extends Model
         $pendaftar = Pendaftar::all();
         $pendaftar_filter = [];
         foreach($pendaftar as $value => $item){
-            $jurusan = Jurusan::where('id', $item->jurusan_id)->pluck('nama_jurusan')->first();
+            $jurusan = Jurusan::where('kode_jurusan', $item->jurusan_kode)->pluck('nama_jurusan')->first();
             $gelombang = Gelombang::where('id_gelombang', $item->gelombang_id)->pluck('nama_gelombang')->first();
             $pendaftar_filter[$value]['no'] = $value+1;
             $pendaftar_filter[$value]['no_reg'] = $pendaftar[$value]->no_reg;

@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\SeleksiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,8 +49,12 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::put('/dashboard/edit-form-registrasi', 'update');
     Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show')->middleware('admin');
     Route::patch('/dashboard/nonaktif', 'nonaktif');
-    Route::get('/dashboard/pendaftar/export', 'export')->name('export.excel')->middleware('admin');
     Route::post('/admin/nilai/import', 'import')->middleware('admin');
+    Route::post('/admin/fungsi-seleksi', 'seleksi')->middleware('admin');
+});
+Route::controller(SeleksiController::class)->middleware('auth')->group(function (){
+    Route::get('/dashboard/seleksi', 'index');
+    Route::get('/dashboard/pendaftar/export', 'export')->name('export.excel')->middleware('admin');
     Route::post('/admin/fungsi-seleksi', 'seleksi')->middleware('admin');
 });
 
