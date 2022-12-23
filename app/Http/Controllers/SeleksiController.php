@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Pendaftar;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendaftarExport;
+use Barryvdh\DomPDF\PDF;
+use Illuminate\Support\Facades\DB;
 
 class SeleksiController extends Controller
 {
     public function index()
     {
         $calonMhs = Pendaftar::all();
-            return view('seleksi.index', compact('calonMhs'));
+        return view('seleksi.index', compact('calonMhs'));
     }
     public function seleksi(Request $request)
     {
@@ -21,22 +23,22 @@ class SeleksiController extends Controller
             $id = $item->no_reg;
             $ujian = $item->nilai_ujian;
             $indonesia = $item->nilai_indonesia;
-            $nilaiIndonesia = explode("," , $indonesia);
+            $nilaiIndonesia = explode(",", $indonesia);
             $total_indonesia = array_sum($nilaiIndonesia);
             $inggris = $item->nilai_inggris;
-            $nilaiinggris = explode("," , $inggris);
+            $nilaiinggris = explode(",", $inggris);
             $total_inggris = array_sum($nilaiinggris);
             $mtk = $item->nilai_mtk;
-            $nilaimtk = explode("," , $mtk);
+            $nilaimtk = explode(",", $mtk);
             $total_mtk = array_sum($nilaimtk);
-            $total_nilai = [$total_mtk, $total_indonesia , $total_inggris , $ujian];
+            $total_nilai = [$total_mtk, $total_indonesia, $total_inggris, $ujian];
             $patokan = array_sum($total_nilai);
             if ($patokan >= 800) {
                 $datasave = [
                     'lulus' => 1,
                 ];
                 DB::table('pendaftars')->where('no_reg', '=', $id)->update($datasave);
-            } else{
+            } else {
                 $datasave = [
                     'lulus' => 0,
                 ];
@@ -63,5 +65,8 @@ class SeleksiController extends Controller
     public function export()
     {
         return Excel::download(new PendaftarExport, 'pendaftar_yang_lulus.xlsx');
+    }
+    public function print_pdf()
+    {
     }
 }

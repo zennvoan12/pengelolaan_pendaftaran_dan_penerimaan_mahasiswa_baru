@@ -25,7 +25,7 @@ class CreatePendaftarsTable extends Migration
             $table->string('nama_ibu', 50);
             $table->char('email_daftar', 50)->unique();
             $table->char('no_telp', 15)->unique();
-            $table->string('alamat',255);
+            $table->string('alamat', 255);
             $table->char('kode_pos', 5);
             $table->char('pendidikan', 3);
             $table->string('asal_sekolah', 100);
@@ -40,14 +40,14 @@ class CreatePendaftarsTable extends Migration
             $table->primary('no_reg');
 
             $table->foreign('user_id')->references('id')->on('users')
-            ->onDelete('cascade')
-            ->onUpdate('cascade'); 
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->foreign('jurusan_kode')->references('kode_jurusan')->on('jurusans')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->foreign('gelombang_id')->references('id_gelombang')->on('gelombangs')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');                       
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

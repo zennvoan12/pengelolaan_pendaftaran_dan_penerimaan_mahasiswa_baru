@@ -57,6 +57,8 @@ Route::controller(SeleksiController::class)->middleware('auth')->group(function 
     Route::get('/dashboard/seleksi', 'index');
     Route::get('/dashboard/pendaftar/export', 'export')->name('export.excel')->middleware('admin');
     Route::post('/admin/fungsi-seleksi', 'seleksi')->middleware('admin');
+    Route::get('/dashboard/pdf', 'print_pdf')->name('dashboard.pdf')->middleware('admin');
+    Route::get('/dashboard/send-mail', [MailController::class, 'store'])->middleware('admin');
 });
 
 Route::controller(SoalController::class)->group(function () {
@@ -72,7 +74,8 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard/fakultas', 'index')->name('admin.fakultas');
         Route::get('/dashboard/fakultas/{kode_fakultas}', 'show');
         Route::get('/dashboard/fakultas/{kode_fakultas}/{kode_jurusan}', 'pendaftar');
-        Route::get('/dashboard/send-mail', [MailController::class, 'store']);
+
+        // Route::get('dashboard/pdf',)
     });
 });
 

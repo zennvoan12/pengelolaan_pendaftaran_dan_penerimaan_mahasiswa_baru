@@ -11,10 +11,7 @@ class MailController extends Controller
 {
     public function store(Request $details)
     {
-        $details = [
-            'title' => 'Mail from ItSolutionStuff.com',
-            'body' => 'This is for testing email using smtp'
-        ];
+
 
         $emails = User::pluck('email');
         $emails->all();
