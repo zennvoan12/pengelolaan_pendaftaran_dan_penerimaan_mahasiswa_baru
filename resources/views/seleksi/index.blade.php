@@ -142,13 +142,14 @@
                         <div class="col-md-12">
                             <div class="overview-wrap">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="{{ route('export.excel') }}" class="btn btn-info" target="_blank"><i
+                                    <a href="{{ route('export.excel') }}" class="btn btn-success" target="_blank"><i
                                             class="fa fa-file-excel"></i> Export</a>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{{ route('export.excel') }}" class="btn btn-danger" target="_blank"><i
+                                                class="fa fa-file-pdf"></i> Print Hasil</a>
+                                    </div>
                                 </div>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="{{ route('export.excel') }}" class="btn btn-info" target="_blank"><i
-                                            class="fa fa-file-excel"></i> Export</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -156,7 +157,7 @@
                     <div class="table-responsive">
                         <form action="/admin/fungsi-seleksi" method="post">
                             @csrf
-                            <button type="submit" class="btn btn-danger"><i class="fa fa-warehouse"></i> Jalankan Fungsi
+                            <button type="submit" class="btn btn-info"><i class="fa fa-warehouse"></i> Jalankan Fungsi
                                 Seleksi Otomatis</button>
                             <hr />
                             <table class="table table-hover bg-white" id="myTable">
