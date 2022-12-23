@@ -72,7 +72,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard/fakultas', 'index')->name('admin.fakultas');
         Route::get('/dashboard/fakultas/{kode_fakultas}', 'show');
         Route::get('/dashboard/fakultas/{kode_fakultas}/{kode_jurusan}', 'pendaftar');
-        Route::get('/dashboard/send-mail', [MailController::class, 'index']);
+        Route::get('/dashboard/send-mail', [MailController::class, 'store']);
     });
 });
 

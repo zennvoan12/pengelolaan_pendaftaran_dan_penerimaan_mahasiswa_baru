@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\EmailNotification;
 use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function index(Request $details)
+    public function store(Request $details)
     {
         $details = [
             'title' => 'Mail from ItSolutionStuff.com',
@@ -18,7 +19,7 @@ class MailController extends Controller
         $emails = User::pluck('email');
         $emails->all();
 
-        Mail::to($emails)->send(new \App\Mail\EmailNotification($details));
+        Mail::to($emails)->send(new \App\Mail\PemberitahuanEmail());
 
         dd("Email is Sent.");
     }
