@@ -145,8 +145,13 @@
                                     <a href="{{ route('export.excel') }}" class="btn btn-success" target="_blank"><i
                                             class="fa fa-file-excel"></i> Export</a>
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="{{ route('export.excel') }}" class="btn btn-danger" target="_blank"><i
+                                        <a href="{{ route('dashboard.pdf') }}" class="btn btn-danger" target="_blank"><i
                                                 class="fa fa-file-pdf"></i> Print Hasil</a>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{{ route('emails.Pemberitahuan') }}" class="btn btn-light"><i
+                                                class="fa fa-box"></i>
+                                            Print Hasil</a>
                                     </div>
                                 </div>
 
@@ -155,7 +160,7 @@
                     </div>
                     <hr />
                     <div class="table-responsive">
-                        <form action="/admin/fungsi-seleksi" method="post">
+                        <form id="table-form" action="/admin/fungsi-seleksi" method="post">
                             @csrf
                             <button type="submit" class="btn btn-info"><i class="fa fa-warehouse"></i> Jalankan Fungsi
                                 Seleksi Otomatis</button>

@@ -10,8 +10,8 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 class PendaftarExport implements FromArray, WithHeadings, ShouldAutoSize
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function array(): array
     {
         return Pendaftar::getDataPendaftar();

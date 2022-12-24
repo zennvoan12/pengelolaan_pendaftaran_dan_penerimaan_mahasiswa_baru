@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Pendaftar;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendaftarExport;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Mail\EmailNotification;
+use Illuminate\Support\Facades\Mail;
 
 class SeleksiController extends Controller
 {
@@ -68,5 +71,25 @@ class SeleksiController extends Controller
     }
     public function print_pdf()
     {
+        $prints = Pendaftar::all();
+        $pdf = PDF::loadView('dashboard.pdf', [
+            'prints' => $prints
+        ]);
+        return $pdf->download('Hasil_Seleksi.pdf');
+    }
+
+    public function email()
+    {
+        $emails = User::pluck('email');
+        $emails->all();
+
+        Mail::to($emails)->send(new \App\Mail\PemberitahuanEmail());
+
+        $notification = [
+            'message' => 'Email Terkirim Sukses',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->back()->with($notification);
     }
 }

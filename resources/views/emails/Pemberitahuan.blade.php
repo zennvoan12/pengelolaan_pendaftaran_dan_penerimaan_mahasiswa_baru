@@ -1,12 +1,12 @@
 @component('mail::message')
-Hallo Peserta Ini Pemberitahuan Test
+    Hallo Peserta Ini Pemberitahuan Test
 
-Perserta Bisa Cek Data Di bawah ini
+    Perserta Bisa Cek Data Di bawah ini
 
-@component('mail::button', ['url' => ''])
-Pemberitahun Test
-@endcomponent
+    @component('mail::button', ['url' => ''])
+        Pemberitahun Test
+    @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+    Thanks,<br>
+
 @endcomponent
