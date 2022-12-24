@@ -10,14 +10,17 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Mail\EmailNotification;
+use App\Mail\PemberitahuanEmail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class SeleksiController extends Controller
 {
     public function index()
     {
         $calonMhs = Pendaftar::all();
-        return view('seleksi.index', compact('calonMhs'));
+
+        return view('seleksi.index', compact('calonMhs'))->render();
     }
     public function seleksi(Request $request)
     {
@@ -75,6 +78,8 @@ class SeleksiController extends Controller
         $pdf = PDF::loadView('dashboard.pdf', [
             'prints' => $prints
         ]);
+
+
         return $pdf->download('Hasil_Seleksi.pdf');
     }
 
@@ -82,14 +87,17 @@ class SeleksiController extends Controller
     {
         $emails = User::pluck('email');
         $emails->all();
+        $details = [
+            'title' => 'Pengumuman',
+            'body' => 'Peserta harap cek bawah hasil peserta Test',
+            'url' => config('app.url') . '/dashboard/pdf'
+        ];
 
-        Mail::to($emails)->send(new \App\Mail\PemberitahuanEmail());
-
+        Mail::to($emails)->queue(new PemberitahuanEmail($details));
         $notification = [
             'message' => 'Email Terkirim Sukses',
             'alert-type' => 'success'
         ];
-
         return redirect()->back()->with($notification);
     }
 }

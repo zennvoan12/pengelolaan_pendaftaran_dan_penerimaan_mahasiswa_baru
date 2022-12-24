@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\EmailNotification;
+
 use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller

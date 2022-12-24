@@ -1,12 +1,11 @@
 @component('mail::message')
-    Hallo Peserta Ini Pemberitahuan Test
+# {{$details['title']}}
 
-    Perserta Bisa Cek Data Di bawah ini
+{{ $details['body'] }}
+@component('mail::button', ['url' => $details['url']])
+Button Text
+@endcomponent
 
-    @component('mail::button', ['url' => ''])
-        Pemberitahun Test
-    @endcomponent
-
-    Thanks,<br>
-
+Thanks,<br>
+{{ config('app.name') }}
 @endcomponent
