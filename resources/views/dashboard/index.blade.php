@@ -65,8 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <blade
-                        elseif|(%24pendaftar%20%3D%3D%20true%20%26%26%20%24pendaftar-%3Enilai_ujian%20%3E%20null)%20%2F%3E />
+                @elseif($pendaftar == true && $pendaftar->nilai_ujian > null)
                     <div class="row">
                         <div class="col-md-12">
                             <div class="overview-wrap">
