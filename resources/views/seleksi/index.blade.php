@@ -170,7 +170,7 @@
                                     <th>No Registrasi</th>
                                     <th>Nama</th>
                                     <th>Total Nilai</th>
-                                    <th>Aksi</th>
+                                    <th>Status</th>
                                 </thead>
                                 <tbody>
                                     @forelse($calonMhs as $item)
@@ -198,13 +198,12 @@
                                                 {{ $total_nilai }}
                                             </td>
                                             <td>
-                                                <a href="/dashboard/lihat/{{ $item->no_reg }}"
-                                                    class="btn btn-success">Lihat</a>
                                                 @if ($item->lulus == 1)
-                                                    <button class="btn btn-success">Lulus</button>
-                                                @endif
-                                                @if ($item->lulus == 0)
-                                                    <button class="btn btn-danger">Tidak</button>
+                                                    <p class="badge badge-success">Lulus</p>
+                                                @elseif ($item->lulus == 0)
+                                                <p class="badge badge-danger">Tidak</p>
+                                                @else
+                                                <p class="badge badge-warning">Belum Diseleksi</p>
                                                 @endif
                                             </td>
                                         </tr>

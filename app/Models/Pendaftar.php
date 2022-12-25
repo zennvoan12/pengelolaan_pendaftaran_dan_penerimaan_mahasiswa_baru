@@ -27,6 +27,13 @@ class Pendaftar extends Model
         $pendaftar = Pendaftar::all();
         $pendaftar_filter = [];
         foreach($pendaftar as $value => $item){
+            if($item->lulus == 0){
+                $status = "Tidak";
+            }elseif($item->lulus == 1){
+                $status = "Lulus";
+            }else{
+                $status = "Belum Diseleksi";
+            }
             $jurusan = Jurusan::where('kode_jurusan', $item->jurusan_kode)->pluck('nama_jurusan')->first();
             $gelombang = Gelombang::where('id_gelombang', $item->gelombang_id)->pluck('nama_gelombang')->first();
             $pendaftar_filter[$value]['no'] = $value+1;
@@ -34,6 +41,7 @@ class Pendaftar extends Model
             $pendaftar_filter[$value]['nama'] = $pendaftar[$value]->nama;
             $pendaftar_filter[$value]['jurusan'] = $jurusan;
             $pendaftar_filter[$value]['gelombang'] = $gelombang;
+            $pendaftar_filter[$value]['status'] = $status;
         }
 
         return $pendaftar_filter;

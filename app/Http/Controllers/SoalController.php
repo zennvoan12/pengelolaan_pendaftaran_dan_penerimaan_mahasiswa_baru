@@ -57,4 +57,10 @@ class SoalController extends Controller
         DB::table('pendaftars')->where('user_id', $id)->update(['nilai_ujian' => $z]);
         return redirect('/dashboard');
     }
+    public function importNilai(Request $request)
+    {
+        Excel::import(new NilaiImport, $request->file('file'));
+
+        return redirect()->back();
+    }
 }

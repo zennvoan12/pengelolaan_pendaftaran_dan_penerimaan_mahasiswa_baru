@@ -24,7 +24,8 @@ class PendaftarExport implements FromArray, WithHeadings, ShouldAutoSize
             'No Registrasi',
             'Nama',
             'Jurusan',
-            'Gelombang'
+            'Gelombang',
+            'Status'
         ];
     }
 }
