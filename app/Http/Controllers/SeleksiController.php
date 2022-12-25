@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Storage;
 
 class SeleksiController extends Controller
 {
+    public $pdf;
     public function index()
     {
         $calonMhs = Pendaftar::all();
@@ -90,7 +91,7 @@ class SeleksiController extends Controller
         $details = [
             'title' => 'Pengumuman',
             'body' => 'Peserta harap cek bawah hasil peserta Test',
-            'url' => config('app.url') . '/dashboard/pdf'
+            'url' => asset('Hasil_Seleksi.pdf')
         ];
 
         Mail::to($emails)->queue(new PemberitahuanEmail($details));
