@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- Required meta tags-->
@@ -98,6 +98,7 @@
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
+            time: 300,
             showConfirmButton: false,
 
         })
