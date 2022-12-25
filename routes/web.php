@@ -50,7 +50,6 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::put('/dashboard/edit-form-registrasi', 'update');
     Route::get('/dashboard/lihat/{no_reg}', 'show')->name('admin.show')->middleware('admin');
     Route::patch('/dashboard/nonaktif', 'nonaktif');
-    Route::post('/admin/nilai/import', 'import')->middleware('admin');
     Route::post('/admin/fungsi-seleksi', 'seleksi')->middleware('admin');
 });
 Route::controller(SeleksiController::class)->middleware('auth')->group(function () {
@@ -67,6 +66,7 @@ Route::controller(SoalController::class)->group(function () {
     Route::get('/dashboard/soal/tinjau', 'tinjau')->middleware('admin');
     Route::get('/dashboard/soal/{no_reg}', 'show')->middleware(['pendaftar', 'soal', 'revalidate']);
     Route::post('/dashboard/soal', 'submit')->name('soal.submit')->middleware('pendaftar');
+    Route::post('/admin/nilai/import', 'importNilai')->middleware('admin');
 });
 
 Route::middleware(['admin'])->group(function () {

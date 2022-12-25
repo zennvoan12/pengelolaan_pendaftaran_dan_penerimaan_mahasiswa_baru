@@ -17,8 +17,6 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-
-
     // public function authenticate(Request $request)
     // {
     //     $notification1 = [
@@ -43,10 +41,10 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password]) || Auth::attempt(['email' => $request->username, 'password' => $request->password])) {
             // Notifikasi login berhasil
-            session()->flash('notification', [
-                'message' => 'Anda Berhasil Login',
-                'alert-type' => 'success'
-            ]);
+            // session()->flash('notification', [
+            //     'message' => 'Anda Berhasil Login',
+            //     'alert-type' => 'success'
+            // ]);
             $notification1 = [
                 'message' => 'Anda Berhasil Login',
                 'alert-type' => 'success'

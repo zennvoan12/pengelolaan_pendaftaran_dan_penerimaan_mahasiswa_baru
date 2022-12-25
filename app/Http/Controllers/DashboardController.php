@@ -20,9 +20,9 @@ class DashboardController extends Controller
         $role = Auth::user()->role_id;
         $calonMhs = Pendaftar::all();
         $pendaftar = Pendaftar::where('user_id', $id)->first();
-        $jurusan = Jurusan::get();
+        $jurusan = Jurusan::all();
         if ($role == 2 && empty($pendaftar) == false) {
-            $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
+            $pilihanJurusan = DB::table('jurusans')->where('kode_jurusan', $pendaftar->jurusan_kode)->first();
             return view('dashboard.index', compact('pendaftar', 'id', 'calonMhs', 'jurusan', 'pilihanJurusan'));
         } else {
             return view('dashboard.index', compact('pendaftar', 'id', 'calonMhs', 'jurusan'));
@@ -63,7 +63,7 @@ class DashboardController extends Controller
         $user = $request->user_id;
         $nama = $request->nama;
         $jurusan = $request->jurusan;
-        $kode = Jurusan::find($jurusan)->first();
+        $kode = DB::table('jurusans')->where('kode_jurusan', $jurusan)->pluck('fakultas_kode')->first();
 
         $pendaftar->no_reg = rand(0000000000, 9999999999);
         $pendaftar->nama = $nama;
@@ -83,11 +83,11 @@ class DashboardController extends Controller
         $pendaftar->nilai_indonesia = $indonesia;
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
-        $pendaftar->jurusan_id = $jurusan;
-        $pendaftar->fakultas_kode = $kode->fakultas_kode;
+        $pendaftar->jurusan_kode = $jurusan;
+        $pendaftar->fakultas_kode = $kode;
         $pendaftar->user_id = $user;
         $pendaftar->gelombang_id = 1;
-
+        // dd($kode);
         if ($request->hasFile('foto')) {
             $ext = $request->file('foto')->extension();
             $foto = 'foto_' . $nama . '_' . $user . '_' . time() . '.' . $ext;
@@ -157,7 +157,7 @@ class DashboardController extends Controller
         $user = $request->user_id;
         $nama = $request->nama;
         $jurusan = $request->jurusan;
-        $kode = Jurusan::find($jurusan)->first();
+        $kode = DB::table('jurusans')->where('kode_jurusan', $jurusan)->pluck('fakultas_kode')->first();
 
         $pendaftar->nama = $nama;
         $pendaftar->nik = $request->nik;
@@ -176,8 +176,8 @@ class DashboardController extends Controller
         $pendaftar->nilai_indonesia = $indonesia;
         $pendaftar->nilai_inggris = $inggris;
         $pendaftar->nilai_mtk = $mtk;
-        $pendaftar->jurusan_id = $jurusan;
-        $pendaftar->fakultas_kode = $kode->fakultas_kode;
+        $pendaftar->jurusan_kode = $jurusan;
+        $pendaftar->fakultas_kode = $kode;
         $pendaftar->user_id = $user;
 
         if ($request->hasFile('foto')) {
@@ -247,11 +247,5 @@ class DashboardController extends Controller
             'alert-type' => 'success'
         ];
         return redirect()->back()->with($notification);
-    }
-    public function import(Request $request)
-    {
-        Excel::import(new NilaiImport, $request->file('file'));
-
-        return redirect()->back();
     }
 }

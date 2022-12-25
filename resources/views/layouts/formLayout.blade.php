@@ -199,9 +199,9 @@
                 <div class="form-group"> 
                     <label>Pilihan Program Studi</label>
                     <select class="form-control" name="jurusan" disabled>
-                        <option value="{{$pilihanJurusan->id}}" selected>{{$pilihanJurusan->nama_jurusan}}</option> 
+                        <option value="{{$pilihanJurusan->kode_jurusan}}" selected>{{$pilihanJurusan->nama_jurusan}}</option> 
                         @foreach ($jurusan as $item)
-                        <option value="{{$item->id}}">{{$item->nama_jurusan}}</option>    
+                        <option value="{{$item->kode_jurusan}}">{{$item->nama_jurusan}}</option>    
                         @endforeach
                     </select>
                 </div>
