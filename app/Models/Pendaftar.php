@@ -35,7 +35,7 @@ class Pendaftar extends Model
             $pendaftar_filter[$value]['jurusan'] = $jurusan;
             $pendaftar_filter[$value]['gelombang'] = $gelombang;
         }
-        
+
         return $pendaftar_filter;
 
     }

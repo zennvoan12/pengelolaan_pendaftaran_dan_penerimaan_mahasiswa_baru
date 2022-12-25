@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Jurusan;
 use App\Imports\NilaiImport;
 use App\Imports\SoalImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class DashboardController extends Controller
 {
     public function index()
@@ -219,7 +221,7 @@ class DashboardController extends Controller
         $pendaftar = Pendaftar::find($id)->first();
         $jurusan = Jurusan::all();
         $pilihanJurusan = Jurusan::where('id', $pendaftar->jurusan_id)->first();
-        return view ('dashboard.showPendaftar', compact ('pendaftar', 'pilihanJurusan', 'jurusan'));
+        return view('dashboard.showPendaftar', compact('pendaftar', 'pilihanJurusan', 'jurusan'));
     }
 
     public function nonaktif(Request $request)
@@ -252,5 +254,4 @@ class DashboardController extends Controller
 
         return redirect()->back();
     }
-
 }
