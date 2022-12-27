@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/card.css')}}">
 
-    <title>Prixima BS5 Template</title>
+    <title>Khayangan Universitas</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
@@ -25,8 +26,8 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-auto">
-                    <p> <i class='bx bxs-envelope'></i> info@example.com</p>
-                    <p> <i class='bx bxs-phone-call'></i> 123 456-7890</p>
+                    <p> <i class='bx bxs-envelope'></i> khayangan.info@ac.com</p>
+                    <p> <i class='bx bxs-phone-call'></i> (0263 243178)</p>
                 </div>
                 <div class="col-auto social-icons">
                     <a href="#"><i class='bx bxl-facebook'></i></a>
@@ -41,7 +42,8 @@
     <!-- BOTTOM NAV -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Khayangan<span class="dot">.</span></a>
+            
+            <a class="navbar-brand" href="#">Universitas Khayangan<span class="dot">.</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -75,10 +77,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center text-white">
-                        <h6 class="text-white text-uppercase">design Driven for professional</h6>
-                        <h1 class="display-3 my-4">We craft digital<br />experiances</h1>
+                        <h6 class="text-white text-uppercase">Designed for Excellence</h6>
+                        <h1 class="display-3 my-4">We Create Excellent <br />Graduates</h1>
                         <a href="#" class="btn btn-brand">Get Started</a>
-                        <a href="#" class="btn btn-outline-light ms-3">Our work</a>
                     </div>
                 </div>
             </div>
@@ -87,10 +88,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-10 offset-lg-1 text-white">
-                        <h6 class="text-white text-uppercase">We craft digital experiances</h6>
-                        <h1 class="display-3 my-4">Design Driven For <br />Professionals</h1>
+                        <h6 class="text-white text-uppercase">We craft amazing experiances</h6>
+                        <h1 class="display-3 my-4">Featured Student Campus <br />Professionals</h1>
                         <a href="#" class="btn btn-brand">Get Started</a>
-                        <a href="#" class="btn btn-outline-light ms-3">Our work</a>
                     </div>
                 </div>
             </div>
@@ -100,17 +100,27 @@
     <!-- ABOUT -->
     <section id="about">
         <div class="container">
+            <h3 class="text-center">VISI</h3>
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="ms-4">
+                            <p>Pada Tahun 2031 Universitas Suryakancana Menjadi Perguruan Tinggi Berstandar Internasional, Unggul, Mandiri dalam Ilmu Pengetahuan dan Teknologi, Beriman dan Bertaqwa kepada Tuhan Yang Maha Esa  serta Mewujudkan Kesejahteraan bagi Masyarakat. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-center">MISI</h3>
             <div class="row justify-content-center">
                 <div class="col-lg-5 py-5">
                     <div class="row">
-
+                        
                         <div class="col-12">
                             <div class="info-box">
                                 <img src="img/icon6.png" alt="">
                                 <div class="ms-4">
-                                    <h5>Digital Marketing</h5>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a page </p>
+                                    <h5>Mencerdaskan Bangsa</h5>
+                                    <p>Ikut serta dalam pembangunan SDM yang berkualitas untuk Indonesia Maju </p>
                                 </div>
                             </div>
                         </div>
@@ -118,9 +128,8 @@
                             <div class="info-box">
                                 <img src="img/icon4.png" alt="">
                                 <div class="ms-4">
-                                    <h5>E-mail Marketing</h5>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a page </p>
+                                    <h5>Inspiratif</h5>
+                                    <p>Mencetak generasi inspiratif setiap tahunnya </p>
                                 </div>
                             </div>
                         </div>
@@ -128,16 +137,15 @@
                             <div class="info-box">
                                 <img src="img/icon5.png" alt="">
                                 <div class="ms-4">
-                                    <h5>Buisness Marketing</h5>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a page </p>
+                                    <h5>Inovatif</h5>
+                                    <p>Mencetak generasi yang inovatif dan berguna untuk nusa dan Bangsa </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <img src="img/about.png" alt="">
+                    <img src="img/k.png" alt="">
                 </div>
             </div>
         </div>
@@ -148,20 +156,16 @@
         <div class="container">
             <div class="row text-center justify-content-center gy-4">
                 <div class="col-lg-2 col-sm-6">
-                    <h1 class="display-4">90K+</h1>
-                    <p class="mb-0">Happy Clients</p>
+                    <h1 class="display-4">5.000</h1>
+                    <p class="mb-0">Mahasiswa Aktif</p>
                 </div>
                 <div class="col-lg-2 col-sm-6">
-                    <h1 class="display-4">45M</h1>
-                    <p class="mb-0">Lines of code</p>
+                    <h1 class="display-4">400</h1>
+                    <p class="mb-0">Dosen</p>
                 </div>
                 <div class="col-lg-2 col-sm-6">
-                    <h1 class="display-4">190</h1>
-                    <p class="mb-0">Total Downloads</p>
-                </div>
-                <div class="col-lg-2 col-sm-6">
-                    <h1 class="display-4">380K</h1>
-                    <p class="mb-0">YouTube Subscribers</p>
+                    <h1 class="display-4">34</h1>
+                    <p class="mb-0">Program Studi Unggulan</p>
                 </div>
             </div>
         </div>
@@ -172,121 +176,115 @@
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
-                        <h6>Our Services</h6>
-                        <h1>What We Do?</h1>
-                        <p class="mx-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
+                        <h6>Apa saja Fakultas di Universitas Khayangan?</h6>
+                        <h1>Fakultas</h1>
+                        <p class="mx-auto">Semenjak didirikannya Universitas Khayangan ini, setidaknya ada 5 Fakultas yang menjadi Unggulan
+                            , dan 34 program studi.
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon1.png" alt="">
-                        <h5>Digital Marketing</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
+                    <div class="containers">
+                        <div class="card">
+                            <div class="face face1">
+                                <div class="content">
+                                    <img src="img/Fakultas-Hukum.webp">
+                                    <h3>Fakultas Hukum</h3>
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="content">
+                                    <p>Ilmu Hukum</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="face face1">
+                                <div class="content">
+                                    <img src="img/Fakultas-Keguruan-dan-Ilmu-Pendidikan.webp">
+                                    <h3>FKIP</h3>
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="content">
+                                    <p> 
+                                        <li>Pendidikan Sastra dan Bahasa Indonesia</li>
+                                        <li>Pendidikan Pancasila dan Kewarganegaraan</li>
+                                        <li>Pendidikan Matematika</li>
+                                        <li>Pendidikan Bahasa Inggris</li>
+                                        <li>Pendidikan Jasmani Kesehatan dan Rekreasi</li>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="face face1">
+                                <div class="content">
+                                    <img src="img/Fakultas-Teknik.webp">
+                                    <h3>Fakultas Teknik</h3>
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="content">
+                                    <p></p>
+                                    <li>Program Studi Informatika</li>
+                                    <li>Program Studi Sipil</li>
+                                    <li>Program Studi Industri</li>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon2.png" alt="">
-                        <h5>Logo Designing</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
+                    <div class="containers">
+                        <div class="card">
+                            <div class="face face1">
+                                <div class="content">
+                                    <img src="img/Fakultas-Ekonomi-dan-Bisnis.webp">
+                                    <h3>Fakultas Ekonomi dan Bisnis</h3>
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="content">
+                                    <p></p>
+                                        <li>Ekonomi Syariah</li>
+                                        <li>Perbankan Syariah</li>
+                                        <li>Akuntansi Syariah</li>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="face face1">
+                                <div class="content">
+                                    <img src="img/Fakultas-Ilmu-Sain-Terapan.webp">
+                                    <h3>Faster</h3>
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="content">
+                                    <p> 
+                                        <li>Agribisnis</li>
+                                        <li>Agro Teknologi</li>
+                                        <li>Administrasi Bisnis Internasional</li>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="face face1">
+                                <div class="content">
+                                    <img src="img/k1.png">
+                                    <h3>Pasca Sarjana </h3>
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="content">
+                                    <p> segera </p>
+                                   
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon3.png" alt="">
-                        <h5>Buisness consulting</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon4.png" alt="">
-                        <h5>Videography</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon5.png" alt="">
-                        <h5>Brand Identity</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon6.png" alt="">
-                        <h5>Ethical Hacking</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section class="bg-light" id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="intro">
-                        <h6>Work</h6>
-                        <h1>Successful projects</h1>
-                        <p class="mx-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="projects-slider" class="owl-theme owl-carousel">
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="img/project1.jpg" alt="">
-                <div class="content">
-                    <h2>Consulting Marketing</h2>
-                    <h6>Website Design</h6>
-                </div>
-            </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="img/project2.jpg" alt="">
-                <div class="content">
-                    <h2>Consulting Marketing</h2>
-                    <h6>Website Design</h6>
-                </div>
-            </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="img/project3.jpg" alt="">
-                <div class="content">
-                    <h2>Consulting Marketing</h2>
-                    <h6>Website Design</h6>
-                </div>
-            </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="img/project4.jpg" alt="">
-                <div class="content">
-                    <h2>Consulting Marketing</h2>
-                    <h6>Website Design</h6>
-                </div>
-            </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="img/project5.jpg" alt="">
-                <div class="content">
-                    <h2>Consulting Marketing</h2>
-                    <h6>Website Design</h6>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section id="team">
@@ -294,10 +292,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
-                        <h6>Team</h6>
-                        <h1>Team Members</h1>
-                        <p class="mx-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
+                        <h6>Pimpinan</h6>
+                        <h1>Rekor dan Wakil</h1>
+                        <p class="mx-auto">berikut adalah Rekor dan Wakil rekor dari Universitas Khayangan</p>
                     </div>
                 </div>
             </div>
@@ -315,8 +312,8 @@
                             <div class="overlay"></div>
                         </div>
 
-                        <h5>Marvin McKinney</h5>
-                        <p>Marketing Coordinator</p>
+                        <h5>Dr. Rendi Nugraha</h5>
+                        <p>Wakil Rektor I</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
@@ -332,8 +329,8 @@
                             <div class="overlay"></div>
                         </div>
 
-                        <h5>Kathryn Murphy</h5>
-                        <p>Ethical Hacker</p>
+                        <h5>Dr. Bill Coulson</h5>
+                        <p>Rektor</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
@@ -349,135 +346,23 @@
                             <div class="overlay"></div>
                         </div>
 
-                        <h5>Darrell Steward</h5>
-                        <p>Software Developer</p>
+                        <h5>Dr. Luke Shaw</h5>
+                        <p>Wakil Rektor II</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-light" id="reviews">
-
-        <div class="owl-theme owl-carousel reviews-slider container">
-            <div class="review">
-                <div class="person">
-                    <img src="img/team_1.jpg" alt="">
-                    <h5>Ralph Edwards</h5>
-                    <small>Market Development Manager</small>
-                </div>
-                <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quis, rem culpa labore voluptate
-                    ullam! In, nostrum. Dicta, vero nihil. Delectus minus vitae rerum voluptatum, excepturi incidunt ut,
-                    enim nam exercitationem optio ducimus!</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
-                <i class='bx bxs-quote-alt-left'></i>
-            </div>
-            <div class="review">
-                <div class="person">
-                    <img src="img/team_2.jpg" alt="">
-                    <h5>Ralph Edwards</h5>
-                    <small>Market Development Manager</small>
-                </div>
-                <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quis, rem culpa labore voluptate
-                    ullam! In, nostrum. Dicta, vero nihil. Delectus minus vitae rerum voluptatum, excepturi incidunt ut,
-                    enim nam exercitationem optio ducimus!</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
-                <i class='bx bxs-quote-alt-left'></i>
-            </div>
-            <div class="review">
-                <div class="person">
-                    <img src="img/team_3.jpg" alt="">
-                    <h5>Ralph Edwards</h5>
-                    <small>Market Development Manager</small>
-                </div>
-                <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quis, rem culpa labore voluptate
-                    ullam! In, nostrum. Dicta, vero nihil. Delectus minus vitae rerum voluptatum, excepturi incidunt ut,
-                    enim nam exercitationem optio ducimus!</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
-                <i class='bx bxs-quote-alt-left'></i>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="intro">
-                        <h6>Blog</h6>
-                        <h1>Blog Posts</h1>
-                        <p class="mx-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <article class="blog-post">
-                        <img src="img/project5.jpg" alt="">
-                        <a href="#" class="tag">Web Design</a>
-                        <div class="content">
-                            <small>01 Dec, 2022</small>
-                            <h5>Web Design trends in 2022</h5>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                piece of classical Latin literature from</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="blog-post">
-                        <img src="img/project4.jpg" alt="">
-                        <a href="#" class="tag">Programming</a>
-                        <div class="content">
-                            <small>01 Dec, 2022</small>
-                            <h5>Web Design trends in 2022</h5>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                piece of classical Latin literature from</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="blog-post">
-                        <img src="img/project2.jpg" alt="">
-                        <a href="#" class="tag">Marketing</a>
-                        <div class="content">
-                            <small>01 Dec, 2022</small>
-                            <h5>Web Design trends in 2022</h5>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                piece of classical Latin literature from</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <footer>
         <div class="footer-top text-center">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h4 class="navbar-brand">Prixima<span class="dot">.</span></h4>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
+                        <h4 class="navbar-brand">Universitas Khayangan<span class="dot">.</span></h4>
+                        <p></p>
                         <div class="col-auto social-icons">
                             <a href="#"><i class='bx bxl-facebook'></i></a>
                             <a href="#"><i class='bx bxl-twitter'></i></a>
