@@ -24,7 +24,7 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="{{ Auth::user()->foto }}" alt="John Doe" />
                                         </a>
                                     </div>
                                     <div class="content">
