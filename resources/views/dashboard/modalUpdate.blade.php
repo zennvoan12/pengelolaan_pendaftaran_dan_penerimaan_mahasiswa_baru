@@ -16,7 +16,6 @@
                 </div>
                         <div class="modal-footer">
                                 <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
                             </form>
                         </div>
                 </div>

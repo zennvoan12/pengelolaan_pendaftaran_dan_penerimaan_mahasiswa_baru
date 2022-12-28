@@ -223,9 +223,9 @@
                             <div class="form-group">
                                 <label>Pilih Program Studi</label>
                                 <select class="form-control" name="jurusan">
-                                    <option value="">--> Pilih Program Studi Yang Akan Diambil <--< /option>
+                                    <option value="">--> Pilih Program Studi Yang Akan Diambil <-- </option>
                                             @foreach ($jurusan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
+                                    <option value="{{$item->kode_jurusan}}">{{ $item->nama_jurusan}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -251,7 +251,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
                 </form>
             </div>
         </div>

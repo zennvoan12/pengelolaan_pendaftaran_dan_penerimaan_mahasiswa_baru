@@ -2,12 +2,14 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Hash;
 
-class EmailNotification extends Notification
+class WelcomeEmailNotification extends Notification
 {
     use Queueable;
 
@@ -16,9 +18,9 @@ class EmailNotification extends Notification
      *
      * @return void
      */
-    public function __construct($project)
+    public function __construct()
     {
-        $this->project = $project;
+        //
     }
 
     /**
@@ -29,7 +31,7 @@ class EmailNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail'];
     }
 
     /**
@@ -41,24 +43,27 @@ class EmailNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->greeting($this->project['greeting'])
-            ->line($this->project['body'])
-            ->action($this->project['actionText'], $this->project['actionURL'])
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', url('/'))
             ->line('Thank you for using our application!');
     }
 
-
-    public function toDatabase($notifiable)
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    protected function create(array $data)
     {
-        return [
-            'project_id' => $this->project['id']
-        ];
-    }
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
 
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+        $user->notify(new WelcomeEmailNotification());
+
+        return $user;
     }
 }
