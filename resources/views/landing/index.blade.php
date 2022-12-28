@@ -8,12 +8,12 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/card.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/card.css') }}">
 
     <title>Khayangan Universitas</title>
 </head>
@@ -42,7 +42,7 @@
     <!-- BOTTOM NAV -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            
+
             <a class="navbar-brand" href="#">Universitas Khayangan<span class="dot">.</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,8 @@
                         <a class="nav-link" href="#">Kontak</a>
                     </li>
                 </ul>
-                <a href="/pendaftaran" class="btn btn-brand ms-lg-3">Pendaftaran <span class="badge text-bg-info">Online</span></a>
+                <a href="/pendaftaran" class="btn btn-brand ms-lg-3">Pendaftaran <span
+                        class="badge text-bg-info">Online</span></a>
             </div>
         </div>
     </nav>
@@ -105,7 +106,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="ms-4">
-                            <p>Pada Tahun 2031 Universitas Suryakancana Menjadi Perguruan Tinggi Berstandar Internasional, Unggul, Mandiri dalam Ilmu Pengetahuan dan Teknologi, Beriman dan Bertaqwa kepada Tuhan Yang Maha Esa  serta Mewujudkan Kesejahteraan bagi Masyarakat. </p>
+                            <p>Pada Tahun 2031 Universitas Suryakancana Menjadi Perguruan Tinggi Berstandar
+                                Internasional, Unggul, Mandiri dalam Ilmu Pengetahuan dan Teknologi, Beriman dan
+                                Bertaqwa kepada Tuhan Yang Maha Esa serta Mewujudkan Kesejahteraan bagi Masyarakat. </p>
                         </div>
                     </div>
                 </div>
@@ -114,7 +117,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 py-5">
                     <div class="row">
-                        
+
                         <div class="col-12">
                             <div class="info-box">
                                 <img src="img/icon6.png" alt="">
@@ -171,18 +174,24 @@
         </div>
     </section>
 
-    <section id="services" class="text-center">
+    <section id="service" class="text-center">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
                         <h6>Apa saja Fakultas di Universitas Khayangan?</h6>
                         <h1>Fakultas</h1>
-                        <p class="mx-auto">Semenjak didirikannya Universitas Khayangan ini, setidaknya ada 5 Fakultas yang menjadi Unggulan
+                        <p class="mx-auto">Semenjak didirikannya Universitas Khayangan ini, setidaknya ada 5 Fakultas
+                            yang menjadi Unggulan
                             , dan 34 program studi.
                         </p>
                     </div>
-                    <div class="containers">
+                </div>
+            </div>
+
+            <div class="containers">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
                         <div class="card">
                             <div class="face face1">
                                 <div class="content">
@@ -196,6 +205,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
                         <div class="card">
                             <div class="face face1">
                                 <div class="content">
@@ -205,7 +216,7 @@
                             </div>
                             <div class="face face2">
                                 <div class="content">
-                                    <p> 
+                                    <p>
                                         <li>Pendidikan Sastra dan Bahasa Indonesia</li>
                                         <li>Pendidikan Pancasila dan Kewarganegaraan</li>
                                         <li>Pendidikan Matematika</li>
@@ -215,6 +226,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
                         <div class="card">
                             <div class="face face1">
                                 <div class="content">
@@ -232,7 +245,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="containers">
+                </div>
+            </div>
+            <div class="containers">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
                         <div class="card">
                             <div class="face face1">
                                 <div class="content">
@@ -243,13 +260,15 @@
                             <div class="face face2">
                                 <div class="content">
                                     <p></p>
-                                        <li>Ekonomi Syariah</li>
-                                        <li>Perbankan Syariah</li>
-                                        <li>Akuntansi Syariah</li>
+                                    <li>Ekonomi Syariah</li>
+                                    <li>Perbankan Syariah</li>
+                                    <li>Akuntansi Syariah</li>
 
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
                         <div class="card">
                             <div class="face face1">
                                 <div class="content">
@@ -259,7 +278,7 @@
                             </div>
                             <div class="face face2">
                                 <div class="content">
-                                    <p> 
+                                    <p>
                                         <li>Agribisnis</li>
                                         <li>Agro Teknologi</li>
                                         <li>Administrasi Bisnis Internasional</li>
@@ -267,6 +286,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
                         <div class="card">
                             <div class="face face1">
                                 <div class="content">
@@ -277,11 +298,14 @@
                             <div class="face face2">
                                 <div class="content">
                                     <p> segera </p>
-                                   
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="bg-light" id="portfolio">
@@ -354,7 +378,7 @@
         </div>
     </section>
 
-   
+
 
     <footer>
         <div class="footer-top text-center">
@@ -386,10 +410,10 @@
 
 
 
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>
