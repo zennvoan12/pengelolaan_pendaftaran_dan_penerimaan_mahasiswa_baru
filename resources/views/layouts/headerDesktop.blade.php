@@ -3,10 +3,8 @@
         <div class="container-fluid">
             <div class="header-wrap">
                 <form class="form-header" action="" method="POST">
-                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                    <button class="au-btn--submit" type="submit">
-                        <i class="zmdi zmdi-search"></i>
-                    </button>
+                    <input class="au-input au-input--xl" type="hidden" name="search" placeholder="Search for datas &amp; reports..." />
+                    
                 </form>
                 <div class="header-button">
                     <div class="noti-wrap">
@@ -15,21 +13,35 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                @if(Auth::user()->roles_id==2)
+                                    @if($pendaftar->foto==null)
+                                    <img src="{{asset('images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                    @else
+                                    <img src="{{asset('storage/foto_diri/'.$pendaftar->foto)}}" alt="John Doe" />
+                                    @endif
+                                @else
+                                        <img src="{{asset('images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                @endif
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
+                                <a class="js-acc-btn" href="#">{{ Auth::user()->username }}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
-                                        <a href="#">
-                                            <img src="{{ Auth::user()->foto }}" alt="John Doe" />
-                                        </a>
+                                        @if(Auth::user()->roles_id==2)
+                                            @if($pendaftar->foto==null)
+                                            <img src="{{asset('images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                            @else
+                                            <img src="{{asset('storage/foto_diri/'.$pendaftar->foto)}}" alt="John Doe" />
+                                            @endif
+                                        @else
+                                                <img src="{{asset('images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                        @endif
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#">{{ Auth::user()->name }}</a>
+                                            <p>{{ Auth::user()->username }}</p>
                                         </h5>
                                         <span class="email">{{ Auth::user()->email }}</span>
                                     </div>

@@ -488,11 +488,11 @@ section {
 }
 
 .au-btn--green {
-    background: #63c76a;
+    background: #f18900;
 }
 
 .au-btn--green:hover {
-    background: #59bd60;
+    background: #cf5503;
 }
 
 .au-btn-plus {
@@ -1641,7 +1641,7 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7;
+    color: #ee811c;;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
@@ -1758,7 +1758,7 @@ section {
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a:hover {
-    color: #4272d7;
+    color: #d65a07;
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a > i {
@@ -2700,7 +2700,7 @@ section {
 }
 
 .header__navbar ul li a:hover {
-    color: #4272d7;
+    color: #ee811c;
 }
 
 .header__navbar ul li a:hover .bot-line {
