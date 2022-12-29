@@ -14,7 +14,7 @@ class AddFieldBerkasPendaftars extends Migration
     public function up()
     {
         Schema::table('pendaftars', function (Blueprint $table) {
-            $table->string('berkas', 50)->after('foto')->nullable();
+            $table->string('berkas', 255)->after('foto')->nullable();
         });
     }
 

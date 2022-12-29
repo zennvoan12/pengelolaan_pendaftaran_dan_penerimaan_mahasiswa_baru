@@ -14,7 +14,7 @@ class AddFieldFotoPendaftars extends Migration
     public function up()
     {
         Schema::table('pendaftars', function (Blueprint $table) {
-            $table->string('foto', 50)->nullable();
+            $table->string('foto', 255)->nullable();
         });
     }
 
