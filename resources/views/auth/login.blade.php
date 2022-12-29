@@ -43,7 +43,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                <img src="images/icon/dsk.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
@@ -64,7 +64,7 @@
                                         <input type="hidden" name="remember">
                                     </label>
                                     <label>
-                                        <a href="/forgot-password">Forgotten Password?</a>
+                                        <a href="/forgot-password">Lupa Password?</a>
                                     </label>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign
@@ -73,8 +73,8 @@
                             </form>
                             <div class="register-link">
                                 <p>
-                                    Don't you have account?
-                                    <a href="/register">Sign Up Here</a>
+                                    tidak memiliki akun?
+                                    <a href="/register">Daftar disini</a>
                                 </p>
                             </div>
                         </div>
