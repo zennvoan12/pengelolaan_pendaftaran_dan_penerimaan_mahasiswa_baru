@@ -31,23 +31,29 @@
         <tbody>
             @php
                 $no = 1;
-                @endphp
+            @endphp
             @foreach ($prints as $print)
-            <tr>
-                <td>{{ $no++ }}</td>
-                <td>{{ $print->no_reg }}</td>
-                <td>{{ $print->nama }}</td>
-                <td>{{ $print->jurusan->nama_jurusan }}</td>
-                <td>
-                    @if ($print->lulus == 1)
-                        <p class="badge badge-success">Lulus</p>
-                    @elseif ($print->lulus == 0)
-                    <p class="badge badge-danger">Tidak</p>
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $print->no_reg }}</td>
+                    <td>{{ $print->nama }}</td>
+                    @if ($print->jurusan)
+                        <td>{{ $print->jurusan->nama_jurusan }}</td>
                     @else
-                    <p class="badge badge-warning">Belum Diseleksi</p>
+                        <td>N/A</td>
                     @endif
-                </td>
-            </tr>
+
+                    {{-- <td>{{ $print->jurusan->nama_jurusan }}</td> --}}
+                    <td>
+                        @if ($print->lulus == 1)
+                            <p class="badge badge-success">Lulus</p>
+                        @elseif ($print->lulus == 0)
+                            <p class="badge badge-danger">Tidak</p>
+                        @else
+                            <p class="badge badge-warning">Belum Diseleksi</p>
+                        @endif
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>
